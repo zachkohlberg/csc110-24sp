@@ -1,0 +1,1208 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSC110 Syllabus</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="course_info.html">Course Information</a></li><li class="chapter-item expanded affix "><a href="revisions.html">Syllabus Revisions</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">1.</strong> Communication and Office Hours</a></li><li class="chapter-item expanded "><a href="meetings.html"><strong aria-hidden="true">2.</strong> Class Meetings</a></li><li class="chapter-item expanded "><a href="course_material.html"><strong aria-hidden="true">3.</strong> Course Material</a></li><li class="chapter-item expanded "><a href="assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assignments/guided_projects.html"><strong aria-hidden="true">4.1.</strong> Guided Projects</a></li><li class="chapter-item expanded "><a href="assignments/expanded_projects.html"><strong aria-hidden="true">4.2.</strong> Expanded Projects</a></li><li class="chapter-item expanded "><a href="assignments/final_project.html"><strong aria-hidden="true">4.3.</strong> Final Project</a></li></ol></li><li class="chapter-item expanded "><a href="grading.html"><strong aria-hidden="true">5.</strong> Grading</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="grading/contract_grading.html"><strong aria-hidden="true">5.1.</strong> Contract Grading</a></li><li class="chapter-item expanded "><a href="grading/grade_contracts.html"><strong aria-hidden="true">5.2.</strong> Grade Contracts</a></li><li class="chapter-item expanded "><a href="grading/notes.html"><strong aria-hidden="true">5.3.</strong> Additional Notes</a></li></ol></li><li class="chapter-item expanded "><a href="university_policies.html"><strong aria-hidden="true">6.</strong> University Policies</a></li><li class="chapter-item expanded "><a href="policies.html"><strong aria-hidden="true">7.</strong> Class Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="policies/late.html"><strong aria-hidden="true">7.1.</strong> Late Work and Extensions</a></li><li class="chapter-item expanded "><a href="policies/ai.html"><strong aria-hidden="true">7.2.</strong> Academic Integrity</a></li></ol></li><li class="chapter-item expanded "><a href="lab.html"><strong aria-hidden="true">8.</strong> Lab</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab/assignments.html"><strong aria-hidden="true">8.1.</strong> Lab Assignments</a></li><li class="chapter-item expanded "><a href="lab/grading.html"><strong aria-hidden="true">8.2.</strong> Lab Grades</a></li><li class="chapter-item expanded "><a href="lab/policies.html"><strong aria-hidden="true">8.3.</strong> Lab Policies</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CSC110 Syllabus</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="course-information"><a class="header" href="#course-information">Course Information</a></h1>
+<p><strong>Course Title:</strong> CSC110: Programming and Problem Solving</p>
+<p><strong>Semester:</strong> Spring 2024</p>
+<p><strong>Instructor:</strong> Zachary Kohlberg (Zach preferred, he/him)</p>
+<p><strong>Instructor Email:</strong> <a href="mailto:zckohlberg@qu.edu">zckohlberg@qu.edu</a></p>
+<p><strong>Tentative Schedule:</strong> <a href="https://docs.google.com/spreadsheets/d/1owWEDVTTa76W00ve5gbrSyLpZVm5zWrHtU02OR9eMrA/edit?usp=sharing">Google Sheets Link</a></p>
+<p><strong>Prerequisites/Corequisites:</strong></p>
+<ul>
+<li>Taken concurrently with CSC110L</li>
+</ul>
+<p><strong>Sections:</strong></p>
+<ul>
+<li>CSC110-01: Tuesday/Thursday 5:00-6:15 PM EST in TH130</li>
+<li>CSC110L-01: Tuesday 3:30-4:45 PM EST in TH130</li>
+</ul>
+<h2 id="description"><a class="header" href="#description">Description</a></h2>
+<p>CSC110 is an introduction to programming using the Java programming language
+and the Jshell REPL. The primary focus of this class is developing
+problem-solving skills and a general knowledge of programming that will be
+useful to you in most programming languages. While we will spend a lot of time
+learning about Java and how to write good code, writing code isn't our ultimate
+goal. The most important skill you can learn in this class is how to <em>think</em>
+like a programmer. Once you've mastered that, writing code is surprisingly
+easy.</p>
+<p>This syllabus also covers any sections of CSC110L that I am teaching this
+semester. Policies specific to CSC110L are in the <a href="./lab.html">lab</a> section of
+this syllabus. If you are taking the lab with a different instructor, then
+refer to their lab syllabus.</p>
+<h2 id="objectives"><a class="header" href="#objectives">Objectives</a></h2>
+<p>CSC110 and CSC110L share objectives. Upon successful completion of both
+courses, students should be able to:</p>
+<ul>
+<li>Discuss the challenges inherent in communicating with (programming) a
+(non-reasoning) computer.</li>
+<li>Break a complex problem down into smaller more manageable components.</li>
+<li>Provide step-by-step instructions to solve small computational problems.</li>
+<li>Using at least one programming language, write examples of and solve problems
+in programs with the following basic programming constructs and tools:
+<ul>
+<li>Mathematical expressions</li>
+<li>Conditional expressions</li>
+<li>Simple iterative statements</li>
+<li>Simple functions</li>
+<li>Simple data structures, such as arrays, lists, and strings</li>
+</ul>
+</li>
+<li>Discuss the importance of commenting and good code structure/style</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="syllabus-revisions"><a class="header" href="#syllabus-revisions">Syllabus Revisions</a></h1>
+<p>If the syllabus needs to be revised during the semester, then any changes will
+be noted here. I will also keep older versions of the syllabus available on
+Blackboard so that there is a clear record of all changes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="communication-and-office-hours"><a class="header" href="#communication-and-office-hours">Communication and Office Hours</a></h1>
+<h2 id="office-hours"><a class="header" href="#office-hours">Office Hours</a></h2>
+<p>My normal office hours are Tuesday from 2:00-3:30 PM EST in TH130. Feel free to
+stop by during that time if you want to talk or work on assignments.</p>
+<p>I am an adjunct (part-time) faculty and do not have an office on campus. I will
+not usually be around outside of class meetings and office hours, but I don't
+mind scheduling a remote meeting if you need to talk but can't make it to
+office hours that week.</p>
+<h2 id="blackboard"><a class="header" href="#blackboard">Blackboard</a></h2>
+<p>You should be able to find all course material and links to submit each
+assignment on this class's Blackboard page. If material is hosted on another
+site, then there should still be a link on Blackboard. Remember that labs and
+lectures are separate courses with separate Blackboard pages.</p>
+<h2 id="email"><a class="header" href="#email">Email</a></h2>
+<p>My email is <a href="mailto:zckohlberg@qu.edu">zckohlberg@qu.edu</a>. I usually check my email daily during the week
+and will try to respond to all emails within 48 hours. If you email me after
+the morning on Friday or over the weekend, then I may not get back to you until
+Monday. You're still welcome to email me at any time during the semester (or
+after, I love to hear how my former students are doing).</p>
+<p>I can answer most questions via email if you don't want to ask in person. If
+you're asking for help with an assignment, coding issue, or software, then
+please try to include as much information as possible and be specific about
+what you want to know (<a href="https://jvns.ca/blog/good-questions">this blog post</a>
+has excellent advice for asking productive questions). The more relevant
+information you include in your email the faster I'll be able to help you.</p>
+<p>If you need me to do something more involved than answer some questions, such
+as review your code or help you debug a program, then you should meet with me
+during office hours. I'm happy to help you with coding, debugging, and other
+tasks as long as you're the one doing the task. You should not come to office
+hours or email me expecting me to do your work for you.</p>
+<h2 id="slackdiscord"><a class="header" href="#slackdiscord">Slack/Discord</a></h2>
+<p>I may set up a Slack workspace or Discord server for the class. If I do, then
+it will be linked on Blackboard. It gives us another channel for communication,
+and it tends to be quicker and less formal than email. If we do have a Slack or
+Discord, then its use will be optional.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-meetings"><a class="header" href="#class-meetings">Class Meetings</a></h1>
+<p>In the event that I cannot attend a class in person, I will usually hold class
+remotely via Zoom or find another faculty member to cover the meeting for me.
+If I need to cancel class, then I will notify everyone as early as possible in
+a Blackboard announcement.</p>
+<h2 id="class-structure"><a class="header" href="#class-structure">Class Structure</a></h2>
+<p>The <a href="https://docs.google.com/spreadsheets/d/1owWEDVTTa76W00ve5gbrSyLpZVm5zWrHtU02OR9eMrA/edit?usp=sharing">course schedule</a> will have the
+agenda for each class meeting, and all activities and material from class will
+be posted to Blackboard. If you want me to cover a specific topic or spend more
+time on something, then let me know and I will try to fit it into the agenda
+for an upcoming class.</p>
+<p>I will try to include a mix of group activities, programming demos, and more
+traditional lectures during class. You should show up to each class prepared
+for what we're doing that day, which means completing any reading or other
+homework assignments before class starts. It's not fair to the people you're
+working with if you don't know what's going on, and you won't get as much out
+of a lecture or demonstration if you skipped the reading.</p>
+<h2 id="attendance-policy"><a class="header" href="#attendance-policy">Attendance Policy</a></h2>
+<p>You should attend class whenever possible, but you do not need my permission to
+miss class or leave early. You also don't need to explain every absence to me,
+although I would appreciate knowing what's going on if you have to miss
+multiple classes in a short period of time.</p>
+<p>If you are feeling sick or suspect you may have COVID, the flu, or another
+contagious illness, then please stay home and focus on recovering. You will be
+fine if you miss a few classes, and you're not likely to get much out of class
+if you are not feeling well. Attending class while sick also poses a risk to
+everyone else.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="course-material"><a class="header" href="#course-material">Course Material</a></h1>
+<h2 id="primary-resources"><a class="header" href="#primary-resources">Primary Resources</a></h2>
+<ul>
+<li><strong>Notes</strong>: I'm in the process of writing and revising notes for all of the
+topics we will cover in this class. They're available in HTML (recommended
+version, linked on Blackboard) and as a PDF (also on Blackboard). You can
+read these at your own pace, but at a minimum you should complete the
+assigned readings to prepare for each week's classes. I will update the notes
+frequently as I complete revisions and add new material.</li>
+<li><strong>Class Activities/Examples</strong>: We will often write short programs during
+class, either as part of a demo or when reviewing a group activity. I will
+post all of these programs in a shared OneDrive folder linked on Blackboard.</li>
+</ul>
+<h2 id="supplemental-resources"><a class="header" href="#supplemental-resources">Supplemental Resources</a></h2>
+<ul>
+<li><strong>Videos</strong>: I plan to record some videos covering how to set up and use
+certain software, how to set up and submit the guided projects, and possibly
+other topics. These are a lower priority than most of my other prep work, so
+the number of videos depends on how much extra time I have during the
+semester.</li>
+<li><strong>Textbooks</strong>: You do not need to purchase any textbooks for this class, but
+I recommend using a textbook or other reliable source to read about the
+topics we cover in more detail. I can recommend the book <a href="https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_and_Computation_Fundamentals/Book%3A_Programming_Fundamentals_(Busbee_and_Braunschweig)/00%3A_Front_Matter/03%3A_Table_of_Contents">Programming and
+Computation Fundamentals, by Busbee and
+Braunschweig</a>,
+which is available for free from &lt;libretexts.org&gt;. My notes may refer to this
+book from time to time.</li>
+</ul>
+<h2 id="software"><a class="header" href="#software">Software</a></h2>
+<ul>
+<li><strong>Text Editors</strong>: You need a text editor to edit code (Microsoft Word and
+Google Docs are <strong>not</strong> text editors). I've listed a few options below. I
+recommend picking one editor that you like and learning to use it well. Get
+used to using your editor's keyboard shortcuts and you'll be able to work
+very fast.
+<ul>
+<li><strong><a href="https://code.visualstudio.com/">VS Code</a></strong>: If I had to guess, I'd say
+this is the most popular editor currently available. I recommend using it
+unless you have a good reason to go with another editor. One caveat: I do
+not use VS Code and have very little experience with it, and I cannot
+provide technical support if you have trouble using it. However, due to
+its popularity you should be able to find plenty of resources online.</li>
+<li><strong><a href="https://neovim.io/">Neovim</a></strong>: This is the editor I use. It's harder
+to learn than the other options in this list, but it's powerful and
+highly configurable. If you want to spend more time initially learning
+vim motions and various keyboard shortcuts, then it might be worth giving
+neovim a try (or vim or emacs, which are both similar to neovim). This
+might also be a good option if you like the idea of gradually customizing
+your editor to suit your exact preferences. However, I think most people
+will be happier with VS Code, so I don't recommend Neovim unless it
+really appeals to you and you're fine with the learning curve.</li>
+<li><strong><a href="https://notepad-plus-plus.org/">Notepad++</a></strong>: I like Notepad++, but
+it's Windows only and I haven't used it in years. It still appears to be
+receiving regular updates, so it should be a solid choice if you're using
+Windows and don't like VS Code.</li>
+<li><strong><a href="https://www.sublimetext.com/">Sublime Text</a></strong>: I've never used
+Sublime, but it was somewhat popular when I was a student. Like
+Notepad++, it still appears to be receiving updates.</li>
+</ul>
+</li>
+<li><strong>Java</strong>: This is the programming language we're using. You'll set up Java
+during the first lab, and I'll post directions on Blackboard in case you need
+to reinstall it in the future.</li>
+<li><strong><a href="https://gitforwindows.org/">Git Bash</a></strong>: We'll be using the terminal
+regularly. I don't like the default terminal programs on Windows (cmd and
+Powershell), and some of the scripts and commands I give you will not work in
+either of them. Git for Windows comes with a decent terminal emulator, and I
+highly recommend it over cmd and Powershell if you use Windows. If you're
+using a Mac or Linux computer, then the default terminal program should be
+fine.</li>
+<li><strong><a href="https://app.diagrams.net/">diagrams.net</a></strong>: This is like Google Docs for
+flowcharts and other diagrams. It can also integrate with Google Drive and
+allow multiple people to edit the same diagram, but some students have
+reported issues with lag while doing this.</li>
+</ul>
+<h2 id="other-resources"><a class="header" href="#other-resources">Other Resources</a></h2>
+<p>Asking good questions is one of the best skills you can have as a student. In
+my experience, very few people (myself included) ask questions as often as they
+should, and it can be difficult to ask a question that will quickly lead to a
+helpful answer. The blog posts below provide excellent advice for asking and
+answering questions. I recommend giving them a quick read, especially if you
+have trouble asking questions or often feel like the answers you get aren't
+helpful.</p>
+<ul>
+<li><a href="https://jvns.ca/blog/good-questions/">https://jvns.ca/blog/good-questions/</a></li>
+<li><a href="https://jvns.ca/blog/2021/10/21/how-to-get-useful-answers-to-your-questions/">https://jvns.ca/blog/2021/10/21/how-to-get-useful-answers-to-your-questions/</a></li>
+<li><a href="https://jvns.ca/blog/answer-questions-well/">https://jvns.ca/blog/answer-questions-well/</a></li>
+</ul>
+<p>The Java API is a useful reference. It may be intimidating right now, but the
+more you learn about Java and programming, the more easily you'll be able to
+navigate the API and use it to look up information.</p>
+<ul>
+<li>Link: <a href="https://docs.oracle.com/en/java/javase/21/docs//api/index.html">https://docs.oracle.com/en/java/javase/21/docs//api/index.html</a></li>
+<li>You can also Google &quot;java api&quot; and whatever part of the API you're trying to
+use, and this will usually give you the right page as the first result. You
+may get the documentation from older versions of Java if you do this, but
+most of that documentation is still accurate for more recent versions.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="assignments"><a class="header" href="#assignments">Assignments</a></h1>
+<p>There are three types of assignments in the grade contracts:</p>
+<ul>
+<li><a href="./assignments/guided_projects.html">Guided Projects</a></li>
+<li><a href="./assignments/expanded_projects.html">Expanded Projects</a></li>
+<li><a href="./assignments/final_project.html">Final Project</a></li>
+</ul>
+<p>We will also have reading assignments and other homework that isn't in your
+grade contract. These are never graded, but they will usually prepare you for
+an activity in the next class meeting.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="guided-projects"><a class="header" href="#guided-projects">Guided Projects</a></h1>
+<p>Most of our projects will be larger programming problems broken into two-three
+parts. The first two parts are called &quot;<strong>Guided Projects</strong>&quot;. The Guided
+Projects contain step-by-step instructions, further breaking down their part of
+the program into a series of small tasks. My goal for each Guided Project is to
+have you practice solving many small problems while building up to a more
+complex and interesting program. I've designed most of the program for you, but
+you still need to figure out how to code each part using the information
+provided.</p>
+<h2 id="expectations"><a class="header" href="#expectations">Expectations</a></h2>
+<p>Guided Projects require you to write and debug code. When working on these
+projects, you should:</p>
+<ol>
+<li>Follow the steps, completing the tasks in the order they are given.</li>
+<li>Test your code as often as possible, especially when directed to in the
+assignment.</li>
+<li>Finish the current step and make sure it works correctly before moving on to
+the next step. Moving on when you haven't fixed an error will make the error
+harder to fix, make the next step more difficult, and lead to more mistakes
+on the rest of the project. This is why frequent testing is important.</li>
+<li>Run the test program included with the assignment after you've completed all
+of the steps. If your work does not pass every test, then fix your mistakes
+and re-test it until it passes.</li>
+</ol>
+<p>I want to emphasize that both <strong>writing</strong> and <strong>debugging</strong> your code are
+equally important parts of these projects. All programmers make mistakes, and
+debugging is a crucial skill to learn. Be patient, take the time to learn why
+code isn't working before you attempt to fix it, and resist the temptation to
+take shortcuts.</p>
+<h2 id="review"><a class="header" href="#review">Review</a></h2>
+<p>I review Guided Projects by running the test program included with the
+assignment. If your submission is packaged correctly and passes all tests, then
+it is <strong>complete</strong>. I will try to review all new guided project submissions
+weekly and update Blackboard to show which projects are complete.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="expanded-projects"><a class="header" href="#expanded-projects">Expanded Projects</a></h1>
+<p><strong>Expanded Projects</strong> build on the program you wrote in the guided projects
+that came before it. Instead of step-by-step instructions, you will have
+several open-ended tasks to complete. These tasks will be more complicated than
+the Guided Projects, and more of the details will be left up to you. Expanded
+Projects don't normally include tests like the Guided Projects.</p>
+<p>Each Expanded Project will also include a write-up. The write-up allows you to
+show me how you designed parts of the program, reflect on the code you wrote,
+and demonstrate your understanding of your program. I consider this to be
+roughly as important as your code, so please put an appropriate amount of time
+and thought into the written portion of your project.</p>
+<h2 id="proposals"><a class="header" href="#proposals">Proposals</a></h2>
+<p>You can propose a different set of tasks to replace the tasks I gave you in the
+assignment (except for the write-up). Your alternative tasks must still meet
+the Learning Objectives given at the beginning of the assignment. I will
+provide a proposal template to use if you would like to modify an Expanded
+Project.</p>
+<p>If you are modifying an Expanded Project, then you must get your proposal
+<strong>approved</strong> at least one week before you submit the project. This is to
+encourage you to write the proposal early and before starting work on the
+project. Keep in mind that you may need to revise the initial proposal before I
+approve it, so it's best to submit proposals at least two to three weeks before
+the project deadline.</p>
+<h2 id="expectations-1"><a class="header" href="#expectations-1">Expectations</a></h2>
+<p>Expanded Projects require you to write and test code, but with less structure
+than the Guided Projects. You will need to spend more time designing the code
+you write and consider how it affects other parts of the program. You will also
+need to write about your work, explaining and assessing the changes you made to
+the program.</p>
+<p>I expect you to complete every programming task and address every writeup
+question before you submit your work. I do not expect your work to be perfect,
+but I do expect it to be finished and result in a runnable program. If you are
+confused by some of the directions, then you need to ask me about them as early
+as possible.</p>
+<h2 id="review-1"><a class="header" href="#review-1">Review</a></h2>
+<p>I will read and test your submission before providing feedback. If you
+completed every task as instructed, fully answered every writeup question, and
+included every deliverable with your submission, then the assignment is
+<strong>complete</strong>. It doesn't matter if I disagree with your opinions in the
+write-up or think you should have written part of the program differently. All
+of my feedback in the project review will be aimed at helping you improve as a
+programmer, and it has no bearing on any grade.</p>
+<p>If you skip any tasks, forget to include a deliverable, or do not fully address
+each writeup question, then your work is <strong>incomplete</strong>. I will provide minimal
+feedback to indicate what part(s) of the assignment are missing, and you can
+resubmit the assignment. If you resubmit after the deadline, then you will
+incur the usual late penalty specified by your grade contract. An incomplete
+submission, even if accidental, does not entitle you to extra time. If you are
+not confident that you have followed the assignment directions correctly, then
+you can always ask me to check your work during office hours or submit a week
+or two early to leave time for a revision.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="final-project"><a class="header" href="#final-project">Final Project</a></h1>
+<p>The <strong>Final Project</strong> is an open-ended project and works similarly to an
+Expanded Project. However, there are a few differences:</p>
+<ul>
+<li>You will start from scratch and design the entire program.</li>
+<li>You <em>must</em> submit a proposal (as you would for alternative tasks in an
+Expanded Project), and you must receive approval at least a week before you
+can turn in the assignment. The Final Project proposal will include
+additional information about the Learning Objectives your project should
+cover.</li>
+<li>You can work in a group, but group projects will have additional
+requirements. I will also expect them to be larger in scope than a typical
+solo project.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="grading"><a class="header" href="#grading">Grading</a></h1>
+<p>This section covers the contract grading system I use in this class.</p>
+<ul>
+<li><a href="./grading/contract_grading.html">Contract Grading</a></li>
+<li><a href="./grading/grade_contracts.html">Grade Contracts</a></li>
+<li><a href="./grading/notes.html">Additional Notes</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contract-grading"><a class="header" href="#contract-grading">Contract Grading</a></h1>
+<p>Contract grading is a form of &quot;labor-based grading.&quot; You can find plenty of
+articles about labor-based grading and grade contracts if you want to search
+for it. Here's one that was easy to find and that I think explains the concept
+well: <a href="https://cep.barnard.edu/labor-based-grading">https://cep.barnard.edu/labor-based-grading</a>. There's also a link to an
+example contract in that webpage. My implementation will differ a little from
+what they describe, but my goals are mostly the same.</p>
+<h2 id="why-grade-contracts"><a class="header" href="#why-grade-contracts">Why Grade Contracts?</a></h2>
+<p>The author of the <a href="https://docs.google.com/document/d/1I9hjemH4qo5nQYa89WW-3udW-oz4cYDoly25m8yaiik/edit?usp=sharing">example grade
+contract</a>
+shown in the Bernard College webpage gives an excellent explanation of why they
+prefer contract grading over traditional grades. I recommend reading that if
+you want a more thorough explanation than what I've written here.</p>
+<p>I'll try to summarize why I dislike traditional grading systems and think grade
+contracts address some (but not all) of the problems with grades.</p>
+<ul>
+<li><strong>Grades are not a good source of feedback.</strong> They aren't necessary for
+feedback, and they don't tell you much. I'd rather write comments explaining
+what I think you did well, pointing out mistakes and areas for improvement,
+and suggesting how you can improve.</li>
+<li><strong>The grade contracts are more transparent than traditional grades.</strong> You
+know exactly which assignments you need to complete to receive a particular
+grade. If I've designed and written my assignments well, then you'll know
+exactly what I expect and can determine for yourself when you've met those
+requirements.</li>
+<li><strong>The grade contract deemphasizes grades.</strong> I don't grade individual
+assignments. I need to determine if you completed the assignment as
+instructed, so I am still enforcing a standard, but beyond that I am not
+penalizing you based on the quality of your work. You are a student, not a
+professional software developer, and I expect you to make a lot of mistakes.
+This is a necessary part of learning, and I don't want to punish you for it
+with lower grades. I'd rather encourage mistakes and help you learn from
+them.</li>
+</ul>
+<p>One other note: graded exams, quizzes, and similar assessments don't work well
+with grade contracts, or at least not with the style of contract I'm using.
+This means we won't have any exams or quizzes in this class, with the possible
+exception of ungraded practice quizzes. This also means there is no
+midterm/final exam.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="grade-contracts"><a class="header" href="#grade-contracts">Grade Contracts</a></h1>
+<h2 id="default-contracts"><a class="header" href="#default-contracts">Default Contracts</a></h2>
+<p>The conditions below are the default options for grade contracts. There is a
+deadline for submitting your initial grade contract, but you're free to change
+to another default contract at any time during the semester. I have a
+<a href="https://docs.google.com/document/d/1VLeQRqu1XuKzN3zhRDEQR96FW4bo_RaxOmKhlDhePac/edit?usp=sharing">template</a>
+on Google Drive for the grade contracts. You can use this rather than writing a
+document from scratch.</p>
+<h3 id="default-a-contract"><a class="header" href="#default-a-contract">Default A Contract</a></h3>
+<ul>
+<li>Final Grade: A (95)</li>
+<li>Required work:
+<ul>
+<li>Submit your first <strong>valid</strong> grade contract before the grade contract deadline</li>
+<li>Complete all Guided Project assignments (1.1, 1.2, 2.1, 2.2, 3.1, 3.2)</li>
+<li>Complete two Expanded Project assignments (1.3 and 2.3)</li>
+<li>Complete the Final Project assignment</li>
+</ul>
+</li>
+<li>Penalties for late or incomplete work:
+<ul>
+<li>-0.25 points per weekday late submitting your first <strong>valid</strong> grade contract</li>
+<li>-3 points per late Expanded Project assignment (if a <strong>complete</strong> submission is
+made within 48 hours of the deadline, then this penalty will be lowered to -1)
+and -6 points per incomplete Expanded Project assignment</li>
+<li>-5 points if the Final Project is late (if a <strong>complete</strong> submission is made
+within 48 hours of the deadline, then this penalty will be lowered to -1) and
+-10 points if the Final Project is incomplete</li>
+<li>If any Guided Project assignments are incomplete, then this contract is invalid
+and you must switch to a different grade contract</li>
+</ul>
+</li>
+</ul>
+<h3 id="default-b-contract"><a class="header" href="#default-b-contract">Default B Contract</a></h3>
+<ul>
+<li>Final Grade: B (85)</li>
+<li>Required work:
+<ul>
+<li>Submit your first <strong>valid</strong> grade contract before the grade contract deadline</li>
+<li>Complete all Guided Project assignments (1.1, 1.2, 2.1, 2.2, 3.1, 3.2)</li>
+<li>Complete two Expanded Project assignments (1.3 and 2.3)</li>
+</ul>
+</li>
+<li>Penalties for late or incomplete work:
+<ul>
+<li>-0.25 points per weekday late submitting your first <strong>valid</strong> grade contract</li>
+<li>-4 points per incomplete Guided Project assignment</li>
+<li>-3 points per late Expanded Project assignment (if a <strong>complete</strong> submission is
+made within 48 hours of the deadline, then this penalty will be lowered to -1)
+and -6 points per incomplete Expanded Project assignment</li>
+<li>If at least two Guided Project assignments are incomplete, then this contract
+is invalid and you must switch to a different grade contract</li>
+</ul>
+</li>
+</ul>
+<h3 id="default-c-contract"><a class="header" href="#default-c-contract">Default C Contract</a></h3>
+<ul>
+<li>Final Grade: C (75)</li>
+<li>Required work:
+<ul>
+<li>Submit your first <strong>valid</strong> grade contract before the grade contract deadline</li>
+<li>Complete all Guided Project assignments (1.1, 1.2, 2.1, 2.2, 3.1, 3.2)</li>
+</ul>
+</li>
+<li>Penalties for late or incomplete work:
+<ul>
+<li>-0.25 points per weekday late submitting your first <strong>valid</strong> grade contract</li>
+<li>-4 points per incomplete Guided Project assignment</li>
+<li>If at least three Guided Project assignments are incomplete, then this contract
+is invalid and you will receive a final grade of F (0)</li>
+</ul>
+</li>
+</ul>
+<h2 id="modifying-a-grade-contract"><a class="header" href="#modifying-a-grade-contract">Modifying a Grade Contract</a></h2>
+<p>Most students will use one of the default contracts. However, you may want or
+need to alter your contract in some way. In that case, discuss your proposed
+changes to the contract with me before you submit the modified contract. You
+can submit a modified contract as your initial grade contract, or you can ask
+to change to a modified contract at any point during the semester. I am under
+no obligation to approve your modifications, but I will try to work with you to
+find a compromise that works for both of us.</p>
+<p><strong>If you make changes to the default grade contract, then you must explain
+these modifications in your contract and clearly mark all changes (for example,
+by highlighting them).</strong> If you do not do this, then your modified contract is
+invalid and I will hold you to the default contract for your chosen grade.</p>
+<p>Some reasons you may want to alter the default contract:</p>
+<ul>
+<li>You need an accommodation that conflicts with one of the contract
+requirements or one of the policies in this syllabus.</li>
+<li>You want to replace an assignment from the contract. You may dislike a
+particular assignment or have a different idea that you think would be more
+interesting to you. Whatever the reason, I'm open to replacing assignments or
+groups of assignments on a case by case basis. Keep in mind that it will be
+up to you to give me a detailed proposal for the alternative assignment and
+demonstrate that it meets the same objectives as the assignment(s) it would
+replace. This option will often entail more work from you, but if it makes
+the projects more fun then it's probably worth that extra effort.</li>
+</ul>
+<p>A few examples where a modified contract would <strong>not</strong> be appropriate:</p>
+<ul>
+<li>You want to remove an assignment from the contract without replacing it. If
+you want less work, then you can choose a contract that requires less work.
+If you're not even willing to do the guided projects in the C contract, then
+you should drop this class.</li>
+<li>You want to propose an A- or other compromise contract that just cuts some of
+the assignments from a higher contract. The contracts already specify grade
+penalties for skipping certain assignments.</li>
+<li>You want to add extra credit to make up for incomplete or late work. It makes
+no sense to skip assignments and then propose extra work to do instead. Just
+do the work in the contract or propose an alternative before that work is
+due.</li>
+<li>You wish to be exempt from a class policy but do not have a compelling reason
+for the exemption.</li>
+</ul>
+<p>If you want to modify the grade contract but aren't sure whether I would allow
+your proposed changes, just ask me about it.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="additional-notes"><a class="header" href="#additional-notes">Additional Notes</a></h1>
+<p>Some additional information about the grade contracts that should answer common
+questions.</p>
+<ul>
+<li>There is no 100/A+ contract. The highest letter grade you can earn at
+Quinnipiac is an A, not an A+
+(<a href="https://catalog.qu.edu/academics/grading-system/">https://catalog.qu.edu/academics/grading-system/</a>). The reason the contract
+specifies a 95 is so that the penalties have a consistent impact in each of
+the three contracts. The actual number doesn't go on your transcript, just
+the letter grade.</li>
+<li>I do not round grades, which may matter if you lose a fraction of a point
+somewhere. For example, a 72.75 does not meet the minimum 73 for a C and
+would therefore be a C-.</li>
+<li>There is no extra credit. You choose what grade you want and you know what
+work is required. Do that work and you get that grade. Don't do that work and
+you get a lower grade. That's how this system works.</li>
+<li>There is no partial credit for partially-finished assignments, and I will not
+change the late penalties because you were almost on-time or almost within
+the 48-hour late window. You must complete the entire assignment for it to
+count, and you must submit it on time to avoid a late penalty. If you're
+having trouble, then please ask me or a tutor for help!</li>
+<li>I tried to set the penalties and deadlines so that it will always make sense
+to prioritize the Guided Projects over the harder assignments if you are
+struggling to finish all of your work. They cover the essential skills we
+want you to learn in CSC110, so if you only do some of the assignments then
+you should do the Guided Projects.</li>
+</ul>
+<p>If you have questions about the grade contracts that aren't answered in the
+syllabus, or if you find something in them unclear or confusing, please don't
+hesitate to ask me about it! Most students aren't used to this type of grading
+system, so I want to address all of your questions and concerns before you
+submit a contract.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="university-policies"><a class="header" href="#university-policies">University Policies</a></h1>
+<p>This section covers some university policies and resources that you should be
+aware of. I have additional information about how these policies pertain to our
+class, but I'm going to keep that separate.</p>
+<h2 id="qu-academic-catolog"><a class="header" href="#qu-academic-catolog">QU Academic Catolog</a></h2>
+<p>The QU Academic Catalog includes most of the resources and policies that I'll
+be linking in this section: <a href="https://catalog.qu.edu/">https://catalog.qu.edu/</a>. This includes the
+undergrad student handbook, the academic integrity policy, and the disability
+policy.</p>
+<h2 id="learning-commons"><a class="header" href="#learning-commons">Learning Commons</a></h2>
+<p>I highly recommend making use of the Learning Commons any time you need help
+with work for this class. There should be several peer tutors available for CSC
+and SER courses. Below is some additional information about the Learning
+Commons and their contact information.</p>
+<blockquote>
+<p>The Learning Commons is a place for students to go when they want to achieve a
+level of performance they can’t reach on their own. In a setting of practice
+and growth, student resources are provided through Peer Educator programs, the
+Office of Student Accessibility, and Academic Development &amp; Outreach
+professional staff. The Learning Commons can be found at the Mount Carmel
+Campus in the North wing of the Arnold Bernhard Library; and at the North Haven
+Campus on the third floor of the Law School (SLE-340). Students are encouraged
+to visit The Learning Commons for support with class content, to improve study
+skills, to consult on academic success strategies, and for general developmental
+advising needs.</p>
+</blockquote>
+<p>Phone: 203-582-8628</p>
+<p>Email: <a href="mailto:LearningCommons@Qinnipiac.edu">LearningCommons@Qinnipiac.edu</a></p>
+<p>Website: <a href="https://www.qu.edu/student-life/support-services/">https://www.qu.edu/student-life/support-services/</a></p>
+<h2 id="academic-integrity"><a class="header" href="#academic-integrity">Academic Integrity</a></h2>
+<p>Here is a link to Quinnipiac University's Academic Integrity (AI) policy:
+<a href="https://catalog.qu.edu/university-policies/academic-integrity-policy/">https://catalog.qu.edu/university-policies/academic-integrity-policy/</a>. This
+policy applies to all courses at QU. I will address Academic Integrity in
+detail later in the syllabus.</p>
+<h2 id="accommodations"><a class="header" href="#accommodations">Accommodations</a></h2>
+<p>QU's policy on disabilities:
+<a href="https://catalog.qu.edu/university-policies/disability-policy/">https://catalog.qu.edu/university-policies/disability-policy/</a>.</p>
+<p>This is a standard statement about accommodations and disabilities that the
+university recommends including in all syllabi:</p>
+<blockquote>
+<p>Quinnipiac University is committed to creating a learning environment that
+meets the needs of its diverse student body. If you anticipate or experience
+any barriers to learning in this course, please feel welcome to discuss your
+concerns with me.</p>
+<p>If you have a disability, or think you may have a disability, you may also
+want to meet with the Office of Student Accessibility, to begin this
+conversation or to request reasonable accommodations. Quinnipiac University
+complies with the Americans with Disabilities Act and Section 504 of the
+Rehabilitation Act of 1973.</p>
+<p>Please contact the Office of Student Accessibility by emailing access@qu.edu,
+or by calling 203-582-7600. If you have already been approved for
+accommodations through the Office of Student Accessibility, please meet with me
+so we can develop an implementation plan together.</p>
+</blockquote>
+<p>Additionally, I want to say that your mental and physical health are more
+important than your classes. If you're struggling with class due to mental
+health issues or notice that you're developing unhealthy habits to cope with
+your academic workload, then please talk to someone as early as possible. I'll
+always try to work with you if you tell me about a problem you're dealing with,
+and the sooner we talk the more I can do to help you.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-policies"><a class="header" href="#class-policies">Class Policies</a></h1>
+<p>There are some policies specific to our class that I want to cover in more
+detail:</p>
+<ul>
+<li><a href="./policies/late.html">Late Work and Extensions</a></li>
+<li><a href="./policies/ai.html">Academic Integrity</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="late-work-and-extensions"><a class="header" href="#late-work-and-extensions">Late Work and Extensions</a></h1>
+<p>The latest I will accept any assignment submissions is the last day of classes
+shown in the <a href="https://catalog.qu.edu/general-information/academic-calendar/">Academic
+Calendar</a>. If an
+assignment is not <strong>complete</strong> and submitted before this deadline, then the
+assignment will count as <strong>incomplete</strong> on your grade contract.</p>
+<p>Some assignments may have deadlines before the last day of classes. The
+contracts specify a late penalty for missing this deadline, and you cannot
+submit them at all after the last day of classes.</p>
+<p>Some assignments do not specify a deadline, but they may have other
+constraints. For example, you may need to give a presentation during a class
+meeting as part of an assignment. If you miss your last opportunity to finish
+such an assignment, then it will count as <strong>incomplete</strong> on your grade
+contract.</p>
+<h2 id="extensions"><a class="header" href="#extensions">Extensions</a></h2>
+<p>In rare cases, I will allow extra time to complete an assignment. You can email
+me to ask for a deadline extension if you believe one is appropriate in your
+situation. Your email should include an explanation of why you need the
+extension, a new proposed deadline, and your current progress on the
+assignment. Be sure to send me your code and any other material you've created
+so far.</p>
+<p>I have some expectations if you are requesting an extension:</p>
+<ul>
+<li>You've demonstrated that you read this policy by including the information I
+asked for.</li>
+<li>If you're having trouble with the assignment, then you're taking steps to get
+help. Most likely this would include seeing a tutor and/or going to office
+hours.</li>
+<li>If it's close to (within a week of) the deadline, then you have already
+finished the majority of the assignment.</li>
+<li>If it's after the deadline, then you have a compelling reason that you were
+not able to contact me earlier and can provide some form of documentation to
+support this.</li>
+</ul>
+<p>I will not extend any deadlines past the last day of classes unless I am giving
+you a final grade of Incomplete as defined in the university's <a href="https://catalog.qu.edu/academics/grading-system/">grading
+system</a>.</p>
+<h2 id="advice"><a class="header" href="#advice">Advice</a></h2>
+<p>If you struggle with deadlines or time management, then I can offer some
+advice:</p>
+<ul>
+<li>Start your work early. You have six to nine assignments to complete depending
+on your grade contract, and you probably won't be ready to start them until
+week 3. That's one to two weeks per assignment. It's not a big workload if
+you spread it out, but it will be overwhelming if you let it pile up.</li>
+<li><strong>Deadlines in this class are not targets.</strong> Time estimation is difficult,
+and it's easy to underestimate how long an assignment will take. If you plan
+to submit something on the due date, then you may be unable to finish on
+time. Aim to submit work at least a week before it is due, and then use the
+extra week to deal with unexpected problems.</li>
+<li>There are people you can talk to if you need help. Talk to them when you
+<em>start</em> having trouble; don't wait until you feel hopelessly stuck or
+overwhelmed. If you do start feeling overwhelmed or hopelessly stuck, then
+it's even more important that you talk to someone right away!
+<ul>
+<li>I'm available in person during office hours and by email or appointment
+(for remote meetings) outside of office hours.</li>
+<li>The Learning Commons employs peer tutors who can help you with this
+class.</li>
+<li>Your Academic Coach can be reached by email and is available by
+appointment. They may not be able to help you with your code, but they're
+a great person to talk to if you're struggling with time management or
+adjusting to a college environment.</li>
+</ul>
+</li>
+<li>Keep backups of your work in case you have a problem with your computer.
+Google Drive and Dropbox both have free plans, and I believe you can access
+OneDrive through the school.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="academic-integrity-ai-policy"><a class="header" href="#academic-integrity-ai-policy">Academic Integrity (AI) Policy</a></h1>
+<p>This section assumes you understand the school's AI policy. I want to cover
+some important details about how it applies in our class.</p>
+<h2 id="permission-to-share-and-discuss-work"><a class="header" href="#permission-to-share-and-discuss-work">Permission to Share and Discuss Work</a></h2>
+<p>I consider it <em>very</em> important that you feel comfortable discussing assignments
+with other students. Your peers can be an excellent source of help and
+feedback, and your own insights and feedback can be incredibly valuable to
+them. To ensure that the school's AI policy does not penalize you for this, I
+give you explicit permission to do the following:</p>
+<ul>
+<li>You may share any work you create for this class with anybody, including your
+classmates.</li>
+<li>You may publicly post work you create for this class.</li>
+<li>You may use work you originally created for this class in an assignment for
+another class as long as you get the other instructor's explicit written
+permission first.</li>
+<li>You may discuss assignments from this class with anybody. You may ask anybody
+for help with them and view their work if they're willing to share it with
+you.</li>
+</ul>
+<p>In summary, you own all the work you do for this class, and that means you can
+decide what you do with it. However, I need to clarify that this permission
+does not extend to the following:</p>
+<ul>
+<li>You may not share work or post it publicly for the purpose of helping someone
+else violate the school's AI policy. This includes if somebody asks you for
+your work and informs you that they plan to copy it before you share the work
+with them. This type of action is considered &quot;facilitation&quot; under the
+school's AI policy.</li>
+<li>You may not use work that you originally created for another class in any of
+your assignments for this class without the explicit permission of both me
+and the other class's instructor. The permission granted previously only
+applies to reusing work <em>from</em> this class in another class, and you would
+still need permission from that class's instructor. If you are ever unsure,
+just ask me and the other instructor.</li>
+<li>You may not copy your work from other people or from a large language model
+(an &quot;AI&quot;). I'll cover this in more detail in the next section.</li>
+</ul>
+<p>I do not consider you responsible for anyone's misuse of material that you
+shared in good faith. I will always take your word regarding how you meant for
+or expected your work to be used unless I have strong evidence that contradicts
+you. If there's ever a question of whether you had permission to share work
+from this class, please contact me and I will vouch for you.</p>
+<h2 id="what-counts-as-plagiarism"><a class="header" href="#what-counts-as-plagiarism">What Counts as Plagiarism?</a></h2>
+<p>First and most important: <strong>in any situation where you have doubts or are
+unsure whether something is allowed, ask me.</strong> It's always okay to ask whether
+you <em>can</em> do something, and this is the best way to be sure that I won't treat
+it as an AI violation.</p>
+<p>This section exists for two reasons: to make it easier for someone who has
+genuine questions to determine whether an action qualifies as cheating, and to
+give me something to point to if somebody claims they didn't know their actions
+qualified as cheating. Going through a series of flimsy excuses is one of the
+most tedious parts of handling an AI violation, so I'd like to be thorough here
+and save myself some trouble later.</p>
+<p>The vast majority of AI violations that occur in this class involve plagiarism
+on programming assignments, so that's what I will focus on. To keep my
+descriptions short, I'll be using &quot;<strong>other work</strong>&quot; to refer to any work that
+was created by somebody other than you or by an LLM (such as ChatGPT). The
+following actions will nearly always qualify as cheating and/or plagiarism
+(I'll note exceptions later):</p>
+<ul>
+<li>Copying the <strong>other work</strong> in whole or in part, whether by copying the file,
+copying and pasting the file's contents, or viewing the file and retyping the
+same information by hand. Modifying the <strong>other work</strong> after copying it,
+whether to disguise the plagiarism or &quot;make it your own&quot; does not change the
+fact that it was copied. What matters is whether you copied work, not how you
+copied it or what you did before or after copying it.</li>
+<li>Paraphrasing the <strong>other work</strong> in whole or in part. This is not meaningfully
+different from copying, and it's often an attempt to disguise the copying and
+provide some plausible deniability if caught.</li>
+<li>Using the other work as a reference when creating your own work. This
+normally ends up with you copying or paraphrasing as described above, but I
+mention it because it's another common excuse.</li>
+<li>Doing your work under the direction of another person. It's okay to talk to
+someone about your work while you're working, but it's not okay to let them
+dictate the code to you. If you're mostly writing what someone else tells you
+to write, then you are not doing your own work. Try talking to them about
+your problem, take some notes, and then go fix the problem after you're done
+talking.</li>
+</ul>
+<p>Exceptions to the above:</p>
+<ul>
+<li>You can use any material that I intentionally provide you (whether it's in my
+notes, starter code, the assignment, or something I showed during class)
+as-is or with modifications in your own work. I gave you that material so you
+could use it, and you don't need to remind me about this. You can still
+document your use of starter code or other resources that I provided if you
+want to, it's just not necessary when submitting it in this class. If you
+show the work outside of this class, then you'll probably want to be more
+explicit about which parts you wrote yourself because that is no longer
+obvious from context.</li>
+<li>If you want to copy or paraphrase a portion of work from another source, then
+you can as long as you do the following:
+<ul>
+<li>Discuss it with me first and get my permission to use the other work.</li>
+<li>Clearly state which outside sources you used and provide a reliable link
+or other means to access those sources.</li>
+<li>Take great care to show what was taken from the other source and what is
+your own original work. It should be immediately obvious to anyone
+viewing your work which parts are from other sources.</li>
+</ul>
+</li>
+</ul>
+<p>Two general rules I use if someone appears to have plagiarized but claims they
+did not:</p>
+<ul>
+<li>If large sections of your code are identical or nearly identical to existing
+code, then it isn't your work. If you are writing your own code and following
+the guidelines I provide in this policy, then you should always end up with
+significantly different code on all but the simplest programs.</li>
+<li>If you don't understand your code and cannot explain how it works, then it
+isn't your work. You should not be writing code that you don't understand,
+and you are not going to accidentally write a working program that solves a
+specific problem without some understanding of the code you're writing. If
+your code doesn't appear to be something you realistically could have written
+and you cannot explain how it works, then I will not accept it for an
+assignment.</li>
+</ul>
+<h3 id="retaking-this-class-and-self-plagiarism"><a class="header" href="#retaking-this-class-and-self-plagiarism">Retaking this Class and Self-Plagiarism</a></h3>
+<p>If you are retaking this class, then I expect you to complete every assignment
+from scratch without reusing any of your old work. Reusing work from the last
+time you took this class would be equivalent to reusing work you completed for
+a different class. As stated earlier in this policy, you <strong>do not</strong> have my
+permission to do this.</p>
+<h2 id="chatgpt-and-llms"><a class="header" href="#chatgpt-and-llms">ChatGPT and LLMs</a></h2>
+<p>You're free to discuss assignments with LLMs such as ChatGPT. However, I do not
+recommend using them too heavily, and I want to warn you about some of their
+limitations before I get into how they pertain to academic integrity. Despite
+the colloquial term &quot;artificial intelligence,&quot; these tools are not intelligent
+and do not understand the conversation they are having with you. They are
+complex algorithms running on powerful hardware, and they are very good at one
+thing: using their training data to produce text that looks like something a
+human might write in the context of your conversation. LLMs are prone to
+hallucinating (making up false information), and they do not know when they are
+hallucinating. If you don't understand the topic you're discussing well enough
+to critically evaluate what ChatGPT tells you, then I think you're better off
+talking to a human who does understand the topic.</p>
+<p>I have a simple rule for how you may use material generated by an LLM: treat
+anything it writes the way you would treat information you found by searching
+the internet or information that someone else gave you. It is not your work,
+and all of the restrictions I've already stated regarding &quot;other work&quot; apply.
+You should also avoid asking an LLM to do something that you would not be
+allowed to ask a human to do. Don't ask ChatGPT to rewrite or fix your work for
+you. This would qualify as cheating. Instead, ask it questions so that you can
+understand how to fix your work, and then <em>fix it yourself</em>.</p>
+<p>If you are using ChatGPT for help with an assignment, then please save that
+conversation so you can share it with me or the AI Office if your work is
+called into question. This is an easy way to prove you used the tool
+appropriately, and if you cannot or will not provide that evidence then I will
+not give you the benefit of the doubt.</p>
+<h2 id="consequences-for-ai-violations"><a class="header" href="#consequences-for-ai-violations">Consequences for AI Violations</a></h2>
+<p>Sanctions for AI violations are determined either by joint resolution, case
+review, or a hearing. In a joint resolution, I must agree to any proposed
+consequences, and in a case review or hearing I will still be consulted about
+appropriate consequences. This section covers what I believe are appropriate
+consequences <em>on a first offense</em> for most AI violations.</p>
+<p>If you plagiarize, cheat, or otherwise violate the AI policy with work you
+submit for an assignment, then under no circumstances will I consider it
+appropriate to give you any credit for the assignment or allow you to attempt
+the assignment again. This is the penalty stipulated in the grade contract for
+not completing the entire assignment, not the penalty for cheating. If you
+copied or cheated on even a small portion of the assignment, <strong>then you did not
+complete the entire assignment</strong>; you completed <em>some</em> of the assignment and
+then copied the remaining work. To give any credit would be a reward for
+violating the AI policy.</p>
+<p>In addition to enforcing the grade contract's penalty for incomplete work, I
+consider the following penalties to be appropriate:</p>
+<ul>
+<li>In cases of cheating on only a small part (let's say under ten percent) of
+one or two assignments, an <em>additional</em> final grade penalty equal to half of
+each assignment's incomplete penalty.</li>
+<li>In more significant cases of cheating on a single assignment, an <em>additional</em>
+final grade penalty equal to the assignment's incomplete penalty.</li>
+<li>In cases of cheating on multiple assignments, a failing grade in the class.</li>
+</ul>
+<p>These additional penalties cannot be removed by changing your grade contract.
+If you cheat on a project for the B contract, then the additional penalty will
+still apply if you change to the C contract.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab"><a class="header" href="#lab">Lab</a></h1>
+<p>The lab is a separate class from the lecture. Depending on how many sections
+there are and who's teaching the classes that semester, you may have me for the
+lab, the lecture, or both.</p>
+<p>Whichever classes you're taking with me, here are a few things you should know:</p>
+<ul>
+<li>You receive a separate final grade in each class, and they may or may not be
+the same. Only your work for the lecture affects your grade in the lecture,
+and only your work in the lab affects your grade in the lab. Passing one
+class doesn't guarantee you'll pass the other.</li>
+<li>The lab and lecture each have their own Blackboard page. I've combined my lab
+and lecture syllabi into this one document for convenience, so you'll see the
+same syllabus from me on both of my Blackboard pages. If you're taking one of
+these classes with someone else, then make sure you read their syllabus. My
+syllabus does not apply to their classes.</li>
+<li>If you are not taking the lab with me, then you can ignore the whole lab
+section of this syllabus. If you are only taking the lab with me, then the
+following parts of the main syllabus are still relevant to you:
+<ul>
+<li><a href="./course_info.html">Course Information</a></li>
+<li><a href="./revisions.html">Syllabus Revisions</a></li>
+<li><a href="./communication.html">Communication and Office Hours</a></li>
+<li><a href="./university_policies.html">University Policies</a></li>
+</ul>
+</li>
+<li>I do not require any additional textbooks or other material for the lab. You
+will need nothing other than your computer, the material you receive in the
+lecture, and the material I give you for each lab assignment.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-assignments"><a class="header" href="#lab-assignments">Lab Assignments</a></h1>
+<p>I plan on giving ten lab assignments during the semester. Lab assignments will
+typically have the following structure:</p>
+<ul>
+<li>A group activity to complete with other students in the lab, which may
+involve writing code or producing other material that should be shared among
+all group members. Each group member should turn in a copy of this group
+work, ensuring that the names of everyone in the group are listed in each
+file/document.</li>
+<li>A written portion to be completed <em>individually</em>. You are free to discuss the
+questions with your group, but you must write your own answers.</li>
+<li>The activity must be completed during class, and all work must be submitted
+on Blackboard by the end of the lab meeting.</li>
+</ul>
+<h2 id="make-up-classes"><a class="header" href="#make-up-classes">Make-Up Classes</a></h2>
+<p>I plan to use four of our class meetings as make-up classes. You may redo a
+single missed or incomplete lab assignment during a make-up class. You must
+complete the entire assignment from the beginning, including the group
+activity, during the make-up class.</p>
+<p>I cannot guarantee we will have all four make-up classes. If I need to cancel a
+class meeting, then I will most likely cut one of the make-up days from our
+schedule. Do not skip labs frivilously and plan to complete them on the next
+make-up day; you may find the make-up day has been cut and you are no longer
+able to complete every assignment.</p>
+<p>If you have completed every lab so far, then feel free to skip a make-up class
+or use the meeting for other work.</p>
+<h2 id="lab-assignment-completion"><a class="header" href="#lab-assignment-completion">Lab Assignment Completion</a></h2>
+<p>Lab assignments are not graded. Each assignment is marked as either complete or
+incomplete:</p>
+<ul>
+<li>A <strong>complete</strong> assignment submission includes all required materials and
+demonstrates that you followed all directions during the lab activity. It
+must be submitted by the end of the class meeting in which it was scheduled
+or during a make-up class.</li>
+<li>An <strong>incomplete</strong> assignment may be missing required materials, may not
+demonstrate that you completed the activity as directed, or may not have been
+submitted due to an absence or failure to finish the activity in the allotted
+time.</li>
+</ul>
+<p>You can only make up an incomplete assignment during one of the designated
+make-up classes. If you have more incomplete assignments than make-up classes,
+then you will not be able to complete every lab.</p>
+<p>Keep in mind that the lab's purpose is to practice applying material from the
+lecture and to reflect on that material by writing about it. There is no wrong
+way to do this as long as you complete the entire practice activity and answer
+every question in the write-up. I don't care about the &quot;correct&quot; code or the
+&quot;correct&quot; answers to the write-up questions, I only care about <em>your</em> code and
+<em>your</em> answers to the write-up questions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-grades"><a class="header" href="#lab-grades">Lab Grades</a></h1>
+<p>Your grade in the lab is determined by the number of lab assignments you
+complete:</p>
+<ul>
+<li>A: all labs complete</li>
+<li>B: one incomplete lab</li>
+<li>C: two incomplete labs</li>
+<li>D: three incomplete labs</li>
+<li>F: four or more incomplete labs</li>
+</ul>
+<p>There are no in-between grades and no partial credit for lab assignments; each
+lab is either complete or incomplete. The highest letter grade you can receive
+is an A because the <a href="https://catalog.qu.edu/academics/grading-system/">university's grading
+system</a> does not allow for an
+A+ or any other grade above an A. I did not include numeric scores with the
+letter grades because I only send a letter grade to the registrar. A numeric
+score would only matter if it affected your letter grade, which is not possible
+with this class's grading system.</p>
+<p>Unlike the lecture, I do not feel a grade contract makes sense for the lab.
+However, I have still tried to do what I can to de-emphasize and simplify
+grades and instead emphasize the learning process. I do not grade individual
+assignments, and I only consider whether the required work was completed on
+time.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-policies"><a class="header" href="#lab-policies">Lab Policies</a></h1>
+<p>Most of the policies outside the lab portion of this syllabus still apply to
+the lab. There are a few changes and additional considerations for the lab,
+which I will note here.</p>
+<h2 id="attendance"><a class="header" href="#attendance">Attendance</a></h2>
+<p>You're still free to miss class when needed and should avoid coming to class if
+you are sick, but attendance is necessary to complete the lab assignments. It's
+up to you to make sure you're attending enough classes to finish all of the
+assignments, and if you need to miss a significant amount of class for some
+reason then you should get in touch with me as early as possible. I will not
+allow additional make-up assignments without a compelling reason <em>and prompt
+communication from you about the circumstances that require the make-up
+assignments</em>. If you wait and email me at the end of the semester to make up
+five missed labs, then expect me to just say no.</p>
+<h2 id="academic-integrity-1"><a class="header" href="#academic-integrity-1">Academic Integrity</a></h2>
+<p>Here is a list of DOs and DON'Ts for the lab assignments:</p>
+<ul>
+<li>DO work on the activity portion with a group and share all work from the
+activity with the rest of your group.</li>
+<li>DO include all of the group work when you submit the lab assignment.</li>
+<li>DO include the names of all group members on the group work you submit.</li>
+<li>DO discuss write-up questions with other students as much as you want. Their
+opinions are valuable and may help you better understand the activity.</li>
+<li>DON'T copy work from another group, the internet, an LLM, or other sources.
+All submitted <em>group work</em> must consist of material I gave you and material
+that you and your group created during the activity.</li>
+<li>DON'T copy answers to the written portion of the assignment, have somebody
+else write them for you, or write them collectively with your group. The
+written portion is to be completed on your own, and it should only consist of
+<em>your</em> answers to these questions.</li>
+<li>DON'T use ChatGPT or another LLM to write or fix your answers to the written
+portion of the assignment. The write-up should only consist of your own
+writing. I'm only interested in hearing <em>your</em> thoughts about the activity,
+and I don't care if you make mistakes as long as you can express your
+thoughts coherently in English.</li>
+</ul>
+<p>I hope the way I designed this class removes most incentives to cheat. However,
+if I do have to handle an AI violation then I will use the standard penalties
+listed below. They are different from the penalties listed in the main AI
+policy for the lecture.</p>
+<ul>
+<li>I still consider it non-negotiable that you receive no credit for an
+assignment on which you cheat and are not allowed to redo the assignment.</li>
+<li>I will count cheating as two incomplete lab assignments rather than one when
+calculating your final grade. This means cheating on one lab and completing
+all the others will result in a C (whereas just skipping that assignment
+would give you a B), and cheating on two or more assignments will result in
+an F.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

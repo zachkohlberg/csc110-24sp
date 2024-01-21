@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Additional Notes - CSC110 Syllabus</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../course_info.html">Course Information</a></li><li class="chapter-item expanded affix "><a href="../revisions.html">Syllabus Revisions</a></li><li class="chapter-item expanded "><a href="../communication.html"><strong aria-hidden="true">1.</strong> Communication and Office Hours</a></li><li class="chapter-item expanded "><a href="../meetings.html"><strong aria-hidden="true">2.</strong> Class Meetings</a></li><li class="chapter-item expanded "><a href="../course_material.html"><strong aria-hidden="true">3.</strong> Course Material</a></li><li class="chapter-item expanded "><a href="../assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../assignments/guided_projects.html"><strong aria-hidden="true">4.1.</strong> Guided Projects</a></li><li class="chapter-item expanded "><a href="../assignments/expanded_projects.html"><strong aria-hidden="true">4.2.</strong> Expanded Projects</a></li><li class="chapter-item expanded "><a href="../assignments/final_project.html"><strong aria-hidden="true">4.3.</strong> Final Project</a></li></ol></li><li class="chapter-item expanded "><a href="../grading.html"><strong aria-hidden="true">5.</strong> Grading</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../grading/contract_grading.html"><strong aria-hidden="true">5.1.</strong> Contract Grading</a></li><li class="chapter-item expanded "><a href="../grading/grade_contracts.html"><strong aria-hidden="true">5.2.</strong> Grade Contracts</a></li><li class="chapter-item expanded "><a href="../grading/notes.html" class="active"><strong aria-hidden="true">5.3.</strong> Additional Notes</a></li></ol></li><li class="chapter-item expanded "><a href="../university_policies.html"><strong aria-hidden="true">6.</strong> University Policies</a></li><li class="chapter-item expanded "><a href="../policies.html"><strong aria-hidden="true">7.</strong> Class Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../policies/late.html"><strong aria-hidden="true">7.1.</strong> Late Work and Extensions</a></li><li class="chapter-item expanded "><a href="../policies/ai.html"><strong aria-hidden="true">7.2.</strong> Academic Integrity</a></li></ol></li><li class="chapter-item expanded "><a href="../lab.html"><strong aria-hidden="true">8.</strong> Lab</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lab/assignments.html"><strong aria-hidden="true">8.1.</strong> Lab Assignments</a></li><li class="chapter-item expanded "><a href="../lab/grading.html"><strong aria-hidden="true">8.2.</strong> Lab Grades</a></li><li class="chapter-item expanded "><a href="../lab/policies.html"><strong aria-hidden="true">8.3.</strong> Lab Policies</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CSC110 Syllabus</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="additional-notes"><a class="header" href="#additional-notes">Additional Notes</a></h1>
+<p>Some additional information about the grade contracts that should answer common
+questions.</p>
+<ul>
+<li>There is no 100/A+ contract. The highest letter grade you can earn at
+Quinnipiac is an A, not an A+
+(<a href="https://catalog.qu.edu/academics/grading-system/">https://catalog.qu.edu/academics/grading-system/</a>). The reason the contract
+specifies a 95 is so that the penalties have a consistent impact in each of
+the three contracts. The actual number doesn't go on your transcript, just
+the letter grade.</li>
+<li>I do not round grades, which may matter if you lose a fraction of a point
+somewhere. For example, a 72.75 does not meet the minimum 73 for a C and
+would therefore be a C-.</li>
+<li>There is no extra credit. You choose what grade you want and you know what
+work is required. Do that work and you get that grade. Don't do that work and
+you get a lower grade. That's how this system works.</li>
+<li>There is no partial credit for partially-finished assignments, and I will not
+change the late penalties because you were almost on-time or almost within
+the 48-hour late window. You must complete the entire assignment for it to
+count, and you must submit it on time to avoid a late penalty. If you're
+having trouble, then please ask me or a tutor for help!</li>
+<li>I tried to set the penalties and deadlines so that it will always make sense
+to prioritize the Guided Projects over the harder assignments if you are
+struggling to finish all of your work. They cover the essential skills we
+want you to learn in CSC110, so if you only do some of the assignments then
+you should do the Guided Projects.</li>
+</ul>
+<p>If you have questions about the grade contracts that aren't answered in the
+syllabus, or if you find something in them unclear or confusing, please don't
+hesitate to ask me about it! Most students aren't used to this type of grading
+system, so I want to address all of your questions and concerns before you
+submit a contract.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../grading/grade_contracts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../university_policies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../grading/grade_contracts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../university_policies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
