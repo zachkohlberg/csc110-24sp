@@ -234,13 +234,11 @@ println(&quot;Does x equal five? &quot; + xEqualsFive);
 println(&quot;Does x equal ten? &quot; + xEqualsTen);
 println(&quot;Does x equal itself plus one? &quot; + xEqualsItselfPlus1);
 </code></pre>
-<p>The parenthesis around the equality checks on lines 2-5 are not necessary, but
-I've included them to make it clear what the order of operations will be. First
-we evaluate whether <code>x</code> is equal to the value to the right of the <code>==</code>, which
-results in <code>true</code> or <code>false</code>, and then we assign the result to the variable on
-the left of the <code>=</code>. Try running this, and note that despite some of the answers
-being false, we don't actually get an error from those false statements. Again,
-this is because they are questions rather than statements of fact.</p>
+<p>The parenthesis around the equality checks on lines 3-7 are not necessary, but
+I've included them to make the order of operations clearer: the comparison will
+always happen before the assignment. Try running this code and see if the
+output is what you expect. Note that none of the false comparisons caused an
+error, they just gave us a result of <code>false</code> instead of <code>true</code>.</p>
 
                     </main>
 

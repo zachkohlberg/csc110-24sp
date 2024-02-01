@@ -176,23 +176,22 @@
                         <h1 id="decision-points"><a class="header" href="#decision-points">Decision Points</a></h1>
 <p>Decision points allow our flowchart to branch in multiple directions, and the
 condition in the decision point determines which branch we follow. All branches
-must eventually converge and lead to the flowchart's end terminator.</p>
+eventually converge and lead to the flowchart's end terminator.</p>
 <h2 id="symbols"><a class="header" href="#symbols">Symbols</a></h2>
 <p>A diamond shape represents a decision or branching point. The text in this
-symbol states the condition, which must usually be true or false. Each branch
-coming from this symbol is labelled with the result that would cause the program
-to follow that branch (again, usually true and false).</p>
+symbol states the condition, which can usually be true or false. Each branch
+coming from this symbol is labelled with the result that would cause the
+program to follow that branch (again, usually true or false).</p>
 <p><img src="../dia/flowcharts/decision_symbols.png" alt="Decision Symbols" /></p>
 <h2 id="selection-vs-iteration"><a class="header" href="#selection-vs-iteration">Selection vs Iteration</a></h2>
 <p>There are two ways we can use decision points: selection and iteration.</p>
 <ul>
 <li><strong>Selection</strong>: the decision point chooses which instruction(s) to perform
-next, but these do not lead back to earlier parts of the flowchart and converge
-before the end terminator.</li>
+next, but these do not lead back to earlier parts of the flowchart.</li>
 <li><strong>Iteration</strong>: the decision point chooses whether to follow a branch that
-leads back to an earlier part of the flowchart or to continue towards the end of
-the flowchart. Iteration allows us to repeat instructions multiple times until a
-condition is met.</li>
+leads back to an earlier part of the flowchart or to continue towards the end
+of the flowchart. Iteration allows us to repeat instructions multiple times
+until a condition is met.</li>
 </ul>
 <p>In Java code, selection is handled with if statements and switch statements.
 Iteration is handled with loops (while, do-while, for).</p>
