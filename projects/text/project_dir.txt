@@ -1,0 +1,15 @@
+projects/
+├── final/
+├── logs/
+├── project1/
+│   ├── part1/
+│   ├── part2/
+│   └── part3/
+├── project2/
+│   ├── part1/
+│   ├── part2/
+│   └── part3/
+├── project3/
+│   ├── part1/
+│   └── part2/
+└── tests/
