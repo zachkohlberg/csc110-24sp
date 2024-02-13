@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js navy">
+<html lang="en" class="navy" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>CSC110 Syllabus</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -32,7 +32,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -62,31 +62,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('navy')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded affix "><a href="course_info.html">Course Information</a></li><li class="chapter-item expanded affix "><a href="revisions.html">Syllabus Revisions</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">1.</strong> Communication and Office Hours</a></li><li class="chapter-item expanded "><a href="meetings.html"><strong aria-hidden="true">2.</strong> Class Meetings</a></li><li class="chapter-item expanded "><a href="course_material.html"><strong aria-hidden="true">3.</strong> Course Material</a></li><li class="chapter-item expanded "><a href="assignments.html"><strong aria-hidden="true">4.</strong> Assignments</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assignments/guided_projects.html"><strong aria-hidden="true">4.1.</strong> Guided Projects</a></li><li class="chapter-item expanded "><a href="assignments/expanded_projects.html"><strong aria-hidden="true">4.2.</strong> Expanded Projects</a></li><li class="chapter-item expanded "><a href="assignments/final_project.html"><strong aria-hidden="true">4.3.</strong> Final Project</a></li></ol></li><li class="chapter-item expanded "><a href="grading.html"><strong aria-hidden="true">5.</strong> Grading</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="grading/contract_grading.html"><strong aria-hidden="true">5.1.</strong> Contract Grading</a></li><li class="chapter-item expanded "><a href="grading/grade_contracts.html"><strong aria-hidden="true">5.2.</strong> Grade Contracts</a></li><li class="chapter-item expanded "><a href="grading/notes.html"><strong aria-hidden="true">5.3.</strong> Additional Notes</a></li></ol></li><li class="chapter-item expanded "><a href="university_policies.html"><strong aria-hidden="true">6.</strong> University Policies</a></li><li class="chapter-item expanded "><a href="policies.html"><strong aria-hidden="true">7.</strong> Class Policies</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="policies/late.html"><strong aria-hidden="true">7.1.</strong> Late Work and Extensions</a></li><li class="chapter-item expanded "><a href="policies/ai.html"><strong aria-hidden="true">7.2.</strong> Academic Integrity</a></li></ol></li><li class="chapter-item expanded "><a href="lab.html"><strong aria-hidden="true">8.</strong> Lab</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab/assignments.html"><strong aria-hidden="true">8.1.</strong> Lab Assignments</a></li><li class="chapter-item expanded "><a href="lab/grading.html"><strong aria-hidden="true">8.2.</strong> Lab Grades</a></li><li class="chapter-item expanded "><a href="lab/policies.html"><strong aria-hidden="true">8.3.</strong> Lab Policies</a></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -117,9 +124,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -219,6 +226,10 @@ in programs with the following basic programming constructs and tools:
 <p>If the syllabus needs to be revised during the semester, then any changes will
 be noted here. I will also keep older versions of the syllabus available on
 Blackboard so that there is a clear record of all changes.</p>
+<p>Revision on 2024/02/13:</p>
+<ul>
+<li>Update lab make-up policy to allow make-up assignments during office hours</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="communication-and-office-hours"><a class="header" href="#communication-and-office-hours">Communication and Office Hours</a></h1>
 <h2 id="office-hours"><a class="header" href="#office-hours">Office Hours</a></h2>
 <p>My normal office hours are Tuesday from 2:00-3:30 PM EST in TH130. Feel free to
@@ -1040,10 +1051,11 @@ questions with your group, but you must write your own answers.</li>
 on Blackboard by the end of the lab meeting.</li>
 </ul>
 <h2 id="make-up-classes"><a class="header" href="#make-up-classes">Make-Up Classes</a></h2>
-<p>I plan to use four of our class meetings as make-up classes. You may redo a
-single missed or incomplete lab assignment during a make-up class. You must
-complete the entire assignment from the beginning, including the group
-activity, during the make-up class.</p>
+<p>I have scheduled four of our class meetings as make-up classes. You may
+complete/redo a single missed or incomplete lab assignment per week either
+during a designated make-up class or during my in-person office hours before
+the lab. Depending on why you did not receive credit for the assignment, I may
+require that you redo both the activity and the write-up from the beginning.</p>
 <p>I cannot guarantee we will have all four make-up classes. If I need to cancel a
 class meeting, then I will most likely cut one of the make-up days from our
 schedule. Do not skip labs frivilously and plan to complete them on the next
@@ -1064,9 +1076,6 @@ demonstrate that you completed the activity as directed, or may not have been
 submitted due to an absence or failure to finish the activity in the allotted
 time.</li>
 </ul>
-<p>You can only make up an incomplete assignment during one of the designated
-make-up classes. If you have more incomplete assignments than make-up classes,
-then you will not be able to complete every lab.</p>
 <p>Keep in mind that the lab's purpose is to practice applying material from the
 lecture and to reflect on that material by writing about it. There is no wrong
 way to do this as long as you complete the entire practice activity and answer
@@ -1163,22 +1172,6 @@ an F.</li>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
