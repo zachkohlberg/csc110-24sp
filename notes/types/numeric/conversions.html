@@ -175,12 +175,13 @@
                     <main>
                         <h1 id="numeric-conversions"><a class="header" href="#numeric-conversions">Numeric Conversions</a></h1>
 <p>You can convert between different numeric types. Some of these conversions must
-be explicitly stated in your code, and others can be performed implicitly. In
-general, conversions from a smaller type to a larger type (widening conversions)
-can happen automatically because they shouldn't cause a loss of information.
-Conversions from a larger type to a smaller type will result in an error unless
-you explicitly tell the program to perform the conversion because these risk
-losing information and causing other errors that are much more difficult to fix.</p>
+be stated in your code (explicit conversions), and others can be performed
+automatically (implicit conversions). In general, conversions from a smaller
+type to a larger type (widening conversions) can happen automatically because
+they shouldn't cause a loss of information. Conversions from a larger type to a
+smaller type will result in an error unless you tell the program to perform the
+conversion because these risk losing information and causing other errors that
+are much more difficult to fix.</p>
 <h2 id="implicit-conversions"><a class="header" href="#implicit-conversions">Implicit Conversions</a></h2>
 <p>Java can implicitly convert from any type earlier in this list to a type later
 in the list:</p>
@@ -192,10 +193,11 @@ in the list:</p>
 <li><code>float</code></li>
 <li><code>double</code></li>
 </ul>
-<p>Java will also implicitly convert from a <code>char</code> to <code>int</code> or any type below <code>int</code>
+<p>Java will also implicitly convert from <code>char</code> to <code>int</code> or any type below <code>int</code>
 on the list, but it will not implicitly convert any type to a <code>char</code>.</p>
 <p>The following code demonstrates a few implicit conversions.</p>
-<pre><code class="language-java">byte a = 10;
+<pre><code class="language-java">// moving down the list implicitly
+byte a = 10;
 short b = a;
 int c = b;
 long d = c;
@@ -203,12 +205,36 @@ float e = d;
 double f = e;
 
 println(a + &quot;, &quot; + b + &quot;, &quot; + c + &quot;, &quot; + d + &quot;, &quot; + e + &quot;, &quot; + f);
+
+// using mixed types in an expression will implicitly convert to the wider type
+
+int x = 5;
+double y = 2.0;
+
+// the expression &quot;x / y&quot; results in a double because, of the two types
+// involved, double is the wider type
+
+double z = x / y;
+
+// if we changed z's type to int then we would get an error
+// int z = x / y;
+
+// will print 2.5
+println(z);
 </code></pre>
+<p>Java will only perform implicit conversions when necessary. If you add an <code>int</code>
+and a <code>double</code>, for example, then these values must be the same type before
+Java can add them. An <code>int</code> can be implicitly converted to a <code>double</code> (and a
+<code>double</code> <em>cannot</em> be implicitly converted to an <code>int</code>), so Java will make the
+implicit conversion before adding the numbers. However, if you divide an <code>int</code>
+by another <code>int</code>, Java doesn't have to convert them to another type to perform
+the division. Therefore, Java will perform integer division and truncate the
+result.</p>
 <h2 id="explicit-conversions"><a class="header" href="#explicit-conversions">Explicit Conversions</a></h2>
 <p>Any other conversions between numeric types must be explicitly stated in your
-code. If we don't do this, then we'll get a syntax error. If we reverse the
-order of the types in the last example, we'll see this happen with every line
-but the first. Try running the following script in jshell:</p>
+code. This is called type casting. If we don't do this, then we'll get a syntax
+error. Let's reverse the type order from the previous example and see what
+happens. Try running the following script in jshell:</p>
 <pre><code class="language-java">double a = 10;
 float b = a;
 long c = a;
@@ -216,8 +242,9 @@ int d = a;
 short e = a;
 byte f = a;
 </code></pre>
-<p>To make this work, we need to state the type we want to convert to in
-parenthesis before the expression we wish to convert:</p>
+<p>We can make this work by forcing the conversion with a type cast. You can cast
+an expression to another type by putting the new type in parenthesis before the
+expression:</p>
 <pre><code class="language-java">double a = 10;
 float b = (float)a;
 long c = (long)a;
@@ -226,6 +253,34 @@ short e = (short)a;
 byte f = (byte)a;
 
 println(a + &quot;, &quot; + b + &quot;, &quot; + c + &quot;, &quot; + d + &quot;, &quot; + e + &quot;, &quot; + f);
+</code></pre>
+<p>You can also use type casting to force a widening conversion if Java wouldn't
+perform the conversion implicitly. As mentioned earlier, Java will perform
+integer division if you divide one <code>int</code> by another, which truncates the
+result. You may decide that you want to divide normally and get a double. In
+that case, you can convert one <code>int</code> to a <code>double</code>, which forces Java to divide
+them as real numbers instead of integers:</p>
+<pre><code class="language-java">int x = 5;
+int y = 2;
+
+// integer division will result in a quotient of 2
+
+println(x / y);
+
+// if we convert one of our integers to a double before dividing, then we'll
+// get a result of 2.5 instead
+
+println((double)x / y);
+
+// both of these will print 2.0 because we performed integer division before
+// converting the result to a double
+
+// type cast after division
+println((double)(x / y));
+
+// implicit conversion via assignment to a double after division
+double z = x / y;
+println(z);
 </code></pre>
 
                     </main>
