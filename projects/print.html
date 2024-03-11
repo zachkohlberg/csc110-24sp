@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Projects Overview</a></li><li class="chapter-item expanded affix "><a href="setup.html">Project Directory Setup</a></li><li class="chapter-item expanded "><a href="project1.html"><strong aria-hidden="true">1.</strong> Project 1: Character Sheet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="project1/part1.html"><strong aria-hidden="true">1.1.</strong> Guided Project 1.1</a></li><li class="chapter-item expanded "><a href="project1/part2.html"><strong aria-hidden="true">1.2.</strong> Guided Project 1.2</a></li><li class="chapter-item expanded "><a href="project1/part3.html"><strong aria-hidden="true">1.3.</strong> Expanded Project 1.3</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Project 2: Dice Game</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Guided Project 2.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Guided Project 2.2</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> Expanded Project 2.3</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Project 3: Connect Four</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Guided Project 3.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Guided Project 3.2</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Final Project</div></li><li class="chapter-item expanded "><a href="expanded_mod.html"><strong aria-hidden="true">5.</strong> Modified Expanded Projects</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Testing</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> I/O Tests</div></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Projects Overview</a></li><li class="chapter-item expanded affix "><a href="setup.html">Project Directory Setup</a></li><li class="chapter-item expanded "><a href="project1.html"><strong aria-hidden="true">1.</strong> Project 1: Character Sheet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="project1/part1.html"><strong aria-hidden="true">1.1.</strong> Guided Project 1.1</a></li><li class="chapter-item expanded "><a href="project1/part2.html"><strong aria-hidden="true">1.2.</strong> Guided Project 1.2</a></li><li class="chapter-item expanded "><a href="project1/part3.html"><strong aria-hidden="true">1.3.</strong> Expanded Project 1.3</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Project 2: Dice Game</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Guided Project 2.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Guided Project 2.2</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> Expanded Project 2.3</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Project 3: Connect Four</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Guided Project 3.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Guided Project 3.2</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Final Project</div></li><li class="chapter-item expanded "><a href="expanded_mod.html"><strong aria-hidden="true">5.</strong> Modified Expanded Projects</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">6.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="testing/test_program.html"><strong aria-hidden="true">6.1.</strong> The Program</a></li><li class="chapter-item expanded "><a href="testing/download.html"><strong aria-hidden="true">6.2.</strong> Download</a></li><li class="chapter-item expanded "><a href="testing/guide.html"><strong aria-hidden="true">6.3.</strong> Guide</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -229,7 +229,6 @@ everything.</li>
 <p>Your project directory should look like this:</p>
 <pre><code>projects/
 ├── final/
-├── logs/
 ├── project1/
 │   ├── part1/
 │   ├── part2/
@@ -247,7 +246,7 @@ everything.</li>
 example, your code for Guided Project 1.1 would go in the folder
 <code>projects/project1/part1</code>. Each folder name must only contain lowercase
 letters, and the spelling must match exactly what is shown above. Ignore the
-<code>/</code> at the end of each name, this is to indicate that the name refers to a
+<code>/</code> at the end of each name; this is to indicate that the name refers to a
 directory rather than a regular file.</p>
 <p>You can create these directories by hand from your file browser, but it's
 easier to use the terminal. The following commands create all dozen or so
@@ -258,18 +257,13 @@ default Windows terminals (cmd and powershell) will not be able to run most
 bash commands.</p>
 <pre><code class="language-bash">mkdir projects
 cd projects
-mkdir -p final tests logs project{1,2,3}/part{1,2} project{1,2}/part3
+mkdir -p final project{1,2,3}/part{1,2} project{1,2}/part3
 </code></pre>
 <p>The name of the root folder (<code>projects</code>) doesn't technically matter, so you can
 use a different name. Just change the name <code>projects</code> in the first two commands
 to your new folder name, but make sure it doesn't contain any spaces.</p>
-<p>The <code>tests</code> and <code>logs</code> folders are used by my test code. When you download the
-test code, you will extract the contents to the <code>projects/tests</code> folder. Every
-time you run a test, it will leave a log file in the <code>projects/logs</code> folder
-with a more detailed record of the test. These logs are useful when you cannot
-determine why your code is failing a test or if you encounter a bug in my test
-code. I may ask you to send me the log file from a test if you ask me to help
-you figure out why your code isn't passing.</p>
+<p>You don't need to create the <code>tests</code> folder right now. It will be created when
+you download the test code and extract the contents.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="project-1-character-sheet"><a class="header" href="#project-1-character-sheet">Project 1: Character Sheet</a></h1>
 <p>For this project, we will write a program that asks the user for information
 about a Dungeons and Dragons 5e character and prints them a character sheet.</p>
@@ -1082,8 +1076,7 @@ the player more control over their stats? If so, what are these features?</li>
 that part of the program, or could you have written that part without a
 loop? If you used multiple loops, then you can choose just one to talk
 about. Include the relevant code in your answer and note the line number(s)
-where it appears in your program. Make sure your explanation covers the
-following:</li>
+where it appears in your program.</li>
 <li>Review your program and find a piece of code that was either challenging to
 write or that you think is an example of particularly good code (it's up to you
 what &quot;good code&quot; means, but you should be able to justify your opinion).
@@ -1213,6 +1206,306 @@ and tell me about well before the assignment itself is due.</p>
 to a week, you're committed to the most recent version of your proposal that I
 approved. A revision would be appropriate if you underestimated the difficulty
 of a task or thought of a better idea for part of the project.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>All Guided Projects are checked by the same test program. This chapter covers
+how to use the test program and how to interpret the test results.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-program"><a class="header" href="#the-program">The Program</a></h1>
+<p>This section explains what the program is and includes some details that you
+don't need in order to use it. This information is here in case you're curious
+about how the program works, and it may help you troubleshoot any problems that
+come up when using it.</p>
+<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
+<p>The test program is written in Java and launched by a shell script called
+<code>test.sh</code>. This script runs <code>tests/bin/projecttests/Main</code> and passes along any
+arguments you provide (everything you type after <code>sh tests/test.sh</code>).</p>
+<p>I've only tested this program on bash terminals. It should work fine on <code>bash</code>,
+<code>zsh</code>, or a <code>bash</code> emulator running on Windows. You might be able to run it
+from <code>cmd</code> or <code>powershell</code> by using the same command found in <code>test.sh</code>, but I
+don't know if every part of the program will work correctly. It uses the <code>zip</code>
+command when packing your projects, which I don't believe will work on
+<code>powershell</code> or <code>cmd</code>.</p>
+<h2 id="tests-directory"><a class="header" href="#tests-directory">Tests Directory</a></h2>
+<p>Below is a view of the <code>projects</code> directory, the <code>tests</code> directory, and their
+contents (assuming you set up the project folders and unpacked the test program
+correctly):</p>
+<pre><code>projects/
+├── final/
+├── project1/
+├── project2/
+├── project3/
+└── tests/
+    ├── bin/
+    ├── data/
+    ├── jsh/
+    ├── logs/
+    ├── src/
+    ├── student/
+    ├── build.sh
+    ├── LICENSE.txt
+    ├── README.txt
+    └── test.sh
+</code></pre>
+<p>The <code>logs</code> and <code>student</code> directories are not included in the zip, but the
+program will create them when it runs.</p>
+<p>You should never need to edit anything in the <code>tests</code> directory or any of its
+subdirectories. <strong>The test program may overwrite any files inside of the
+<code>tests</code> directory or its subdirectories, so don't keep any of your own files in
+there</strong>. As long as you know not to use the <code>tests</code> directory for your own
+documents, you don't need to be familiar with anything inside that folder to
+use the program.</p>
+<ul>
+<li><code>bin</code> contains the compiled Java code for the test programs</li>
+<li><code>data</code> contains data used by the tests, mostly inputs and expected outputs</li>
+<li><code>jsh</code> contains jshell scripts used by the tests</li>
+<li><code>logs</code> contains logs generated by the test program</li>
+<li><code>src</code> contains the Java source code for the tests</li>
+<li><code>student</code> contains modified copies of your code used by the tests, unmodified
+backup copies so the status command can check for changes, and a file to
+record the result of each project's last test</li>
+<li><code>build.sh</code> is a shell script that will recompile the test program using your
+installed version of <code>javac</code></li>
+<li><code>LICENSE.txt</code> is the text of the MIT license, which applies to this test
+program</li>
+<li><code>README.txt</code> is a text file containing some of the documentation provided
+here</li>
+<li><code>test.sh</code> is the aforementioned shell script that launches the test program</li>
+</ul>
+<h2 id="test-logs"><a class="header" href="#test-logs">Test Logs</a></h2>
+<p>When the test program runs, it will write information about what it's doing to
+a log file. This file isn't usually going to be helpful unless I need to help
+you troubleshoot an unusual problem or find and fix a bug in my test code. All
+of these files are saved to the <code>tests/logs</code> folder.</p>
+<h2 id="backup-copy-of-student-code"><a class="header" href="#backup-copy-of-student-code">Backup Copy of Student Code</a></h2>
+<p>As mentioned above, the program saves a backup copy of your code so that the
+status command can check whether your program has changed since it was last
+tested. While I'm calling this a &quot;backup copy,&quot; you should not rely on it to
+back up your work for a few reasons:</p>
+<ul>
+<li>Only the most recently-tested version of your project is saved, and the
+backup file(s) are overwritten every time you run the test command with that
+project.</li>
+<li>The <code>tests</code> folder is in the same location as your project folders, which
+means a mishap that causes you to lose your projects will probably delete the
+tests folder and any backup copies it contains.</li>
+<li>If you start editing this file, then your work will be lost (probably with no
+way to recover it) as soon as you run the test command with that project.
+This is why I cautioned you earlier not to keep any of your own files inside
+of the <code>tests</code> folder.</li>
+</ul>
+<p>Keep your work backed up separately with a cloud storage service such as
+Dropbox, Google Drive, or OneDrive. If you know how to use version-control
+software such as git, then keep your work backed up in a remote repository. If
+you lose work that was saved when testing your program, then it won't hurt to
+check whether the backup copy includes some of the lost work, but don't count
+on it helping you prevent data loss. That's not why it's there, and I don't
+want it to give anyone a false sense of security.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="download"><a class="header" href="#download">Download</a></h1>
+<p>Download the latest version of the tests below or from our shared OneDrive
+folder. If you are experiencing an error with the test program, then you should
+make sure you have the most recent version before reporting the error to me.
+You can check which version you are running with the <code>version</code> command. The
+older versions are archived here as well just in case there's an unexpected
+issue with the latest version or someone needs to check an older version for
+some reason.</p>
+<p>Some anti-virus programs may flag the test zip as malware and quarantine it.
+That happened when I downloaded it to my Windows PC to check that it worked in
+Git Bash. This is a false positive (or at least I'm about as confident as
+possible that it's a false positive), and if this happens then you'll need to
+tell your anti-virus program that it's not dangerous. I wrote all of the test
+code, none of which is malicious and all of which can be viewed in the
+tests/src folder, and I only used the Java standard library (no third-party
+libraries). There's no reason that this zip folder is less safe than anything
+else I've shared with the class on OneDrive.</p>
+<p>Latest version:</p>
+<ul>
+<li><a href="testing/../../archives/tests_0_2_0.zip">tests_0_2_0.zip</a></li>
+</ul>
+<p>Previous versions:</p>
+<ul>
+<li><a href="testing/../../archives/tests_0_1_0.zip">tests_0_1_0.zip</a></li>
+</ul>
+<h2 id="unpacking"><a class="header" href="#unpacking">Unpacking</a></h2>
+<p>You only need to unpack the program when you first download it or when you
+download a new version. To unpack the program:</p>
+<ol>
+<li>Place the downloaded zip archive in your <code>projects</code> folder.</li>
+<li>Open your terminal and navigate to your <code>projects</code> folder.</li>
+<li>Run the command <code>unzip tests_VERSION.zip</code> (replace VERSION with whatever
+version number appears in the zip folder name) to unpack the test files into
+your <code>projects/tests</code> folder. For example, if the test zip is named
+<code>tests_0_2_0.zip</code>, then you would unzip it by running <code>unzip tests_0_2_0.zip</code>.</li>
+<li>If you already have a tests folder from a previous version, then the unzip
+command will ask you about each duplicate file to make sure you want to
+replace them. You can choose 'All' to say yes to every file without having
+to go through the prompts. You can also include the <code>-o</code> flag after the
+unzip command if you want it to overwrite files without prompting you.</li>
+<li>You don't need the zip folder after you've extracted the contents. I
+recommend deleting it so you don't clutter your projects folder with old
+versions of the test program.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing-guide"><a class="header" href="#testing-guide">Testing Guide</a></h1>
+<p>This section is a walkthrough covering how to test and submit your guided
+projects. Make sure you've downloaded and unpacked the test program as directed
+in the <a href="testing/./download.html">download section</a>.</p>
+<h2 id="usage-summary"><a class="header" href="#usage-summary">Usage Summary</a></h2>
+<p>You should always run this program from your projects directory (where you have
+your project1, project2, project3, final, and tests folders) by entering <code>sh tests/test.sh &lt;command&gt;</code> on the terminal. Replace <code>&lt;command&gt;</code> with one of the
+commands described below:</p>
+<ul>
+<li><code>help</code> prints a help message for the program or a specific command.</li>
+<li><code>version</code> prints the program's version.</li>
+<li><code>status</code> checks the current status of each of your projects: whether the
+expected files/folders were found, whether you've previously tested that
+project, and whether it is currently passing the tests.</li>
+<li><code>test</code> runs the tests for one or more projects.</li>
+<li><code>pack</code> zips the files for every guided project that has passed its tests to
+prepare them for upload to Blackboard.</li>
+</ul>
+<p>When running this program, make sure you read any error messages it shows you.
+I've tried to include error messages that cover common problems you may
+encounter. I expect you to try following any directions in the error messages
+and using the help command before asking me why something isn't working.</p>
+<h2 id="1-status-check"><a class="header" href="#1-status-check">1. Status Check</a></h2>
+<p>Before testing a project, you should use the status command to determine which
+projects can be found and whether they were previously recorded passing or
+failing their tests. The status command's output looks like this (as of version
+0.2.0):</p>
+<pre><code>Project 1.1
+
+Required project files:
+	(FILE FOUND) project1/part1/CharacterSheet1.jsh
+
+Last recorded test:
+	Result: PASS
+	Tested: 2024-03-11T16:33:02.912216789
+	Modified since last test: NO
+
+Project 1.2
+
+Required project files:
+	(FILE MISSING) project1/part2/CharacterSheet2.jsh
+
+Last recorded test:
+	No record found
+</code></pre>
+<p>To further explain this output:</p>
+<ul>
+<li>Required project files: this lists each file that should exist for the
+project and where it should be located inside your projects folder. If will
+also say whether the file was found, is missing, or was found but
+miscapitalized. If your file was not found or was miscapitalized, then you
+may have named a file or folder incorrectly.</li>
+<li>Last recorded test: as of version 0.2.0, the test program will save the
+overall result of each test and a backup copy of your code in the
+<code>tests/student</code> folder. If the status command can find those files, then it
+will show the following information:
+<ul>
+<li>Result: whether the last test passed or failed.</li>
+<li>Tested: the date and time on which the last test was completed.</li>
+<li>Modified since last test: whether there is a difference between your
+current code and the backup copy saved during the last test.</li>
+</ul>
+</li>
+</ul>
+<p>If your project's required files were all found, then you should be able to
+test that project. If the required files were found, the last test passed, and
+the files haven't been modified since that last test, then you should be ready
+to submit that project on Blackboard (using the pack command to zip everything
+first).</p>
+<h2 id="2-testing-a-project"><a class="header" href="#2-testing-a-project">2. Testing a Project</a></h2>
+<p>To test a project, run the test command followed by the number of the project
+you want to test (1.1, 1.2, etc.). For example, <code>sh tests/test.sh test 1.1</code>
+would run the tests for project 1.1.</p>
+<p>If you entered a valid project number, the program will attempt to run all of
+the tests for that project with your code. This may take a minute or two. After
+it's finished, you should see a message informing you that the test is
+complete. You can now check the test results with the following commands:</p>
+<ul>
+<li><code>summary</code> displays a summary of the entire set of tests. If your program
+passed every test case, then the overall result should say <code>PASS</code>. If any
+tests failed, timed out, or unexpectedly crashed, then the overall result
+should say <code>FAIL</code>.
+<ul>
+<li>If a test timed out, then your program may have an error that causes it
+to run for an extended period of time (such as an infinite loop). You
+should run your program manually to make sure this isn't the issue.</li>
+<li>If a test crashed, then there was an unexpected error while the test was
+running. This could be a bug in the test program, and I recommend
+rerunning the test to see if it happens again.</li>
+</ul>
+</li>
+<li><code>list</code> lists a summary of each individual test case: the test case's id
+number, whether that test case passed or failed, and how many lines of the
+expected output matched your output</li>
+<li><code>code</code> shows your code used in the test case</li>
+<li><code>show</code> displays information about a specific test case. You can specify what
+information to show, or let the command print everything it has for that test
+case. A test case can contain a lot of information, so you may need to scroll
+up to see all of it.</li>
+<li><code>help</code> provides information about the commands you can run while browsing
+test results.</li>
+<li><code>quit</code> stops browsing the test results and moves on to the next project (if
+you're testing multiple projects) or exits the test program. The details of
+these test results are not saved, so you won't be able to view them again
+without rerunning the test.</li>
+</ul>
+<h3 id="interpreting-test-results"><a class="header" href="#interpreting-test-results">Interpreting Test Results</a></h3>
+<p>A failed test case can contain several useful pieces of information:</p>
+<ul>
+<li>The input shows what input was provided to your program. You can replicate
+the test case by running your program and typing the exact same input shown
+in this section.</li>
+<li>The student program output shows what your program printed when running. This
+is what you'd expect to see if you replicated the test case by entering the
+same input.</li>
+<li>The expected program output shows what your program needs to print in order
+to pass the test case.</li>
+<li>The errors section shows any error messages that occurred while the test case
+was running.</li>
+<li>The additional feedback section may contain more information about why your
+program didn't pass this test case.</li>
+</ul>
+<p>When you're looking at the output sections, you'll see each line labelled as
+&quot;MATCH&quot;, &quot;NO MATCH&quot;, or &quot;ERROR&quot;. These labels are there to help you find the
+mistakes in your program's output that caused it to fail this test case.</p>
+<ul>
+<li><code>MATCH</code> means this line was found in both your output and the expected
+output. Every line in the expected output must match for the test to pass.</li>
+<li><code>NO MATCH</code> means this line of your program's output didn't appear in the
+expected output. This isn't necessarily a problem. Your program is allowed to
+produce extra output as long as it produces all of the expected output.</li>
+<li><code>ERROR</code> means this line of the expected output didn't appear in your
+program's output.</li>
+</ul>
+<h2 id="3-packing-and-submitting-a-project"><a class="header" href="#3-packing-and-submitting-a-project">3. Packing and Submitting a Project</a></h2>
+<p>After a project passes its tests, you need to put all of your project files in
+a single zip folder before uploading them to Blackboard. You can do this
+manually, or you can use the test program's <code>pack</code> command.</p>
+<h3 id="with-pack-command"><a class="header" href="#with-pack-command">With <code>pack</code> Command</a></h3>
+<p>Run the test program with the <code>pack</code> command to copy the files for every
+project that has passed its tests into a zip folder. You can then upload this
+zip folder to Blackboard. <strong>Warning</strong>: remember to check the contents of the
+zip before uploading it and make sure it contains everything you were
+expecting. My program most likely packed everything correctly, but it's always
+possible that it missed something due to a bug.</p>
+<h3 id="manually-create-zip"><a class="header" href="#manually-create-zip">Manually Create Zip</a></h3>
+<p>If you want to create the zip folder manually, then you need to check that all
+of your files and folders are named correctly. The <code>status</code> command should take
+care of this, and it will also let you know whether that project was previously
+recorded passing its tests. You should be able to select all of your project
+folders, right-click, and then compress or create a new zip folder (the exact
+command will depend on your operating system).</p>
+<p>You can also use the <code>zip</code> command on the terminal. You'll need to specify the
+full path to each file this way. For example, the command to zip projects 1.1
+and 1.2 would look like this: <code>zip guided_project_submission.zip project1/part1/CharacterSheet1.jsh project1/part2/CharacterSheet2.jsh</code></p>
+<p>Be aware that if files or folders are misnamed (either incorrect spelling or
+incorrect capitalization), then the scripts I use to process submissions will
+not handle your files correctly and I will not mark them as complete. This is
+why I gave you the <code>pack</code> and <code>status</code> commands: to check that everything is
+ready to submit and zip it correctly. If you don't want to use them, then you
+need to take care to name and package the files exactly as required before
+submitting them. Don't create the zip manually to avoid fixing a problem the
+<code>pack</code> or <code>status</code> command warned you about.</p>
 
                     </main>
 

@@ -1,6 +1,5 @@
 projects/
 ├── final/
-├── logs/
 ├── project1/
 │   ├── part1/
 │   ├── part2/

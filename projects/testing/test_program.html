@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Program - CSC110 Projects</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../overview.html">Projects Overview</a></li><li class="chapter-item expanded affix "><a href="../setup.html">Project Directory Setup</a></li><li class="chapter-item expanded "><a href="../project1.html"><strong aria-hidden="true">1.</strong> Project 1: Character Sheet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project1/part1.html"><strong aria-hidden="true">1.1.</strong> Guided Project 1.1</a></li><li class="chapter-item expanded "><a href="../project1/part2.html"><strong aria-hidden="true">1.2.</strong> Guided Project 1.2</a></li><li class="chapter-item expanded "><a href="../project1/part3.html"><strong aria-hidden="true">1.3.</strong> Expanded Project 1.3</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Project 2: Dice Game</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> Guided Project 2.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Guided Project 2.2</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> Expanded Project 2.3</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Project 3: Connect Four</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Guided Project 3.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Guided Project 3.2</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Final Project</div></li><li class="chapter-item expanded "><a href="../expanded_mod.html"><strong aria-hidden="true">5.</strong> Modified Expanded Projects</a></li><li class="chapter-item expanded "><a href="../testing.html"><strong aria-hidden="true">6.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../testing/test_program.html" class="active"><strong aria-hidden="true">6.1.</strong> The Program</a></li><li class="chapter-item expanded "><a href="../testing/download.html"><strong aria-hidden="true">6.2.</strong> Download</a></li><li class="chapter-item expanded "><a href="../testing/guide.html"><strong aria-hidden="true">6.3.</strong> Guide</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CSC110 Projects</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-program"><a class="header" href="#the-program">The Program</a></h1>
+<p>This section explains what the program is and includes some details that you
+don't need in order to use it. This information is here in case you're curious
+about how the program works, and it may help you troubleshoot any problems that
+come up when using it.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The test program is written in Java and launched by a shell script called
+<code>test.sh</code>. This script runs <code>tests/bin/projecttests/Main</code> and passes along any
+arguments you provide (everything you type after <code>sh tests/test.sh</code>).</p>
+<p>I've only tested this program on bash terminals. It should work fine on <code>bash</code>,
+<code>zsh</code>, or a <code>bash</code> emulator running on Windows. You might be able to run it
+from <code>cmd</code> or <code>powershell</code> by using the same command found in <code>test.sh</code>, but I
+don't know if every part of the program will work correctly. It uses the <code>zip</code>
+command when packing your projects, which I don't believe will work on
+<code>powershell</code> or <code>cmd</code>.</p>
+<h2 id="tests-directory"><a class="header" href="#tests-directory">Tests Directory</a></h2>
+<p>Below is a view of the <code>projects</code> directory, the <code>tests</code> directory, and their
+contents (assuming you set up the project folders and unpacked the test program
+correctly):</p>
+<pre><code>projects/
+├── final/
+├── project1/
+├── project2/
+├── project3/
+└── tests/
+    ├── bin/
+    ├── data/
+    ├── jsh/
+    ├── logs/
+    ├── src/
+    ├── student/
+    ├── build.sh
+    ├── LICENSE.txt
+    ├── README.txt
+    └── test.sh
+</code></pre>
+<p>The <code>logs</code> and <code>student</code> directories are not included in the zip, but the
+program will create them when it runs.</p>
+<p>You should never need to edit anything in the <code>tests</code> directory or any of its
+subdirectories. <strong>The test program may overwrite any files inside of the
+<code>tests</code> directory or its subdirectories, so don't keep any of your own files in
+there</strong>. As long as you know not to use the <code>tests</code> directory for your own
+documents, you don't need to be familiar with anything inside that folder to
+use the program.</p>
+<ul>
+<li><code>bin</code> contains the compiled Java code for the test programs</li>
+<li><code>data</code> contains data used by the tests, mostly inputs and expected outputs</li>
+<li><code>jsh</code> contains jshell scripts used by the tests</li>
+<li><code>logs</code> contains logs generated by the test program</li>
+<li><code>src</code> contains the Java source code for the tests</li>
+<li><code>student</code> contains modified copies of your code used by the tests, unmodified
+backup copies so the status command can check for changes, and a file to
+record the result of each project's last test</li>
+<li><code>build.sh</code> is a shell script that will recompile the test program using your
+installed version of <code>javac</code></li>
+<li><code>LICENSE.txt</code> is the text of the MIT license, which applies to this test
+program</li>
+<li><code>README.txt</code> is a text file containing some of the documentation provided
+here</li>
+<li><code>test.sh</code> is the aforementioned shell script that launches the test program</li>
+</ul>
+<h2 id="test-logs"><a class="header" href="#test-logs">Test Logs</a></h2>
+<p>When the test program runs, it will write information about what it's doing to
+a log file. This file isn't usually going to be helpful unless I need to help
+you troubleshoot an unusual problem or find and fix a bug in my test code. All
+of these files are saved to the <code>tests/logs</code> folder.</p>
+<h2 id="backup-copy-of-student-code"><a class="header" href="#backup-copy-of-student-code">Backup Copy of Student Code</a></h2>
+<p>As mentioned above, the program saves a backup copy of your code so that the
+status command can check whether your program has changed since it was last
+tested. While I'm calling this a &quot;backup copy,&quot; you should not rely on it to
+back up your work for a few reasons:</p>
+<ul>
+<li>Only the most recently-tested version of your project is saved, and the
+backup file(s) are overwritten every time you run the test command with that
+project.</li>
+<li>The <code>tests</code> folder is in the same location as your project folders, which
+means a mishap that causes you to lose your projects will probably delete the
+tests folder and any backup copies it contains.</li>
+<li>If you start editing this file, then your work will be lost (probably with no
+way to recover it) as soon as you run the test command with that project.
+This is why I cautioned you earlier not to keep any of your own files inside
+of the <code>tests</code> folder.</li>
+</ul>
+<p>Keep your work backed up separately with a cloud storage service such as
+Dropbox, Google Drive, or OneDrive. If you know how to use version-control
+software such as git, then keep your work backed up in a remote repository. If
+you lose work that was saved when testing your program, then it won't hurt to
+check whether the backup copy includes some of the lost work, but don't count
+on it helping you prevent data loss. That's not why it's there, and I don't
+want it to give anyone a false sense of security.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../testing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../testing/download.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../testing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../testing/download.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
