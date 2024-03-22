@@ -4025,21 +4025,20 @@ can catch logic errors by manually testing your program or by writing automated
 tests, like the test scripts included with some of the projects.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="syntax-changes"><a class="header" href="#syntax-changes">Syntax Changes</a></h1>
 <h2 id="output-1"><a class="header" href="#output-1">Output</a></h2>
-<p>The <code>PRINTING</code> script we added to our jshell startup created shorter print
-functions for our jshell scripts to use. This is why we could type <code>println</code>
-instead of <code>System.out.println</code>. In a Java program, we need to specify an output
-stream when we want to print something. <code>System.out</code> is an output stream
-connected to standard out, and <code>System.err</code> is an output stream connected to
-standard err (which is used for printing error messages). All of the print
-functions we used in jshell still work in Java as long as you begin them with
-<code>System.out.</code>.</p>
+<p>The script we added to our jshell startup created shorter print functions for
+our jshell scripts to use. This is why we could type <code>println</code> instead of
+<code>System.out.println</code>. In a Java program, we need to specify an output stream
+when we want to print something. <code>System.out</code> is an output stream connected to
+standard out, and <code>System.err</code> is an output stream connected to standard err
+(which is used for printing error messages). All of the print functions we used
+in jshell still work in Java as long as you begin them with <code>System.out.</code>.</p>
 <h2 id="input-1"><a class="header" href="#input-1">Input</a></h2>
-<p>The <code>INPUT.jsh</code> script we added to our jshell startup created a <code>Scanner</code> and
-some shorter input functions (<code>nextInt</code>, <code>nextLine</code>, etc.) for our jshell
-scripts to use. To do the same thing in a Java program, we need to create a
-scanner connected to an input stream (<code>System.in</code> is what we'll normally use),
-then we can call that scanner's input methods. The same input functions will
-work as long as we call them as methods on our <code>System.in</code> scanner.</p>
+<p>The script we added to our jshell startup also created a <code>Scanner</code> and some
+shorter input functions (<code>nextInt</code>, <code>nextLine</code>, etc.) for our jshell scripts to
+use. To do the same thing in a Java program, we need to create a scanner
+connected to an input stream (<code>System.in</code> is what we'll normally use), then we
+can call that scanner's input methods. The same input functions will work as
+long as we call them as methods on our <code>System.in</code> scanner.</p>
 <p>We also need to import the scanner class before we can use it in our program. An
 <code>import</code> statement normally goes at the beginning of our program, before the
 start of our class. See the code below for a complete example of creating and
@@ -4110,11 +4109,53 @@ when switching to Java programs is that they're no longer optional in the main
 body of your program.</p>
 <h2 id="code-blocks"><a class="header" href="#code-blocks">Code Blocks</a></h2>
 <p>One other small change is the structure of code blocks. Jshell's interpreter
-doesn't allow you to write the opening brace for the body of an if statement or
-a loop on the line after the if statement or loop. A Java program has no problem
-with this, as you can see in the example programs. It doesn't matter which style
-you use when writing code blocks, but you should always be consistent. Don't
-switch styles in the middle of a program.</p>
+will not associate the <code>else</code> with the preceding <code>if</code> in the example below:</p>
+<pre><code class="language-java">// jshell won't like this
+if (condition) {
+    body;
+}
+else {
+    body;
+}
+
+// jshell will be fine with this
+if (condition) {
+    body;
+} else {
+    body;
+}
+</code></pre>
+<p>In a compiled Java program, this is no longer an issue. Any of the following
+formats for if statements should be fine, but you should stick to the same
+format throughout your program. Consistency is important for keeping your code
+easy to read.</p>
+<pre><code class="language-java">// braces on separate lines
+// more verbose, but extra lines visually separate body from surrounding code
+if (condition)
+{
+    body;
+}
+else if (condition)
+{
+    body;
+}
+else
+{
+    body;
+}
+
+// my preference (for Java code)
+// opening braces on same line as associated statement
+// else on same line as closing brace
+// shorter, but less whitespace to visually separate body from surrounding code
+if (condition) {
+    body;
+} else if (condition) {
+    body;
+} else {
+    body;
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="syntax-templates-and-common-patterns"><a class="header" href="#syntax-templates-and-common-patterns">Syntax Templates and Common Patterns</a></h1>
 <p>This section contains examples of patterns you'll see and use frequently while
 learning Java. Each entry will have a label to describe the pattern's
