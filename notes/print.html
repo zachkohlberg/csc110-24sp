@@ -3597,13 +3597,13 @@ types, which differ from <a href="jshell/arrays/../../types/primitives.html">pri
 program stores their data:</p>
 <ul>
 <li>Value-type variables directly store the data for the value they represent. If
-<code>x</code> and <code>y</code> are value types, then the assignment statement <code>x = y</code> will copy the
-data from <code>x</code> into <code>y</code>.</li>
+<code>x</code> and <code>y</code> are value types, then the assignment statement <code>x = y</code> will copy
+the data from <code>y</code> into <code>x</code>.</li>
 <li>Reference-type variables store a memory address that points to their data,
 which is stored in a region of memory called the <strong>heap</strong>. If <code>x</code> and <code>y</code> are
 reference types, then the assignment statement <code>x = y</code> will copy the memory
-address from <code>x</code> into <code>y</code>, which means both <code>x</code> and <code>y</code> will be pointing to the
-same object.</li>
+address from <code>y</code> into <code>x</code>, which means both <code>x</code> and <code>y</code> will be pointing to
+the same object that <code>y</code> was previously pointing to.</li>
 </ul>
 <h2 id="comparing-reference-types"><a class="header" href="#comparing-reference-types">Comparing Reference Types</a></h2>
 <p>When you compare two variables using <code>==</code> or <code>!=</code>, the program checks whether
@@ -3779,7 +3779,7 @@ println(&quot;c: &quot; + c);
 println(&quot;d: &quot; + d);
 </code></pre>
 <p>If we reassign a variable containing a reference to immutable data, then the
-original data still exists. Just because the string <code>a</code> points to is immutable,
+original data still exists. The string that <code>a</code> points to is immutable, but
 this doesn't mean the memory address stored in <code>a</code> can't be changed to point to
 different data.</p>
 <pre><code class="language-java">// Create a new string
