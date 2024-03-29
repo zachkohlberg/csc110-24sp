@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../overview.html">Projects Overview</a></li><li class="chapter-item expanded affix "><a href="../setup.html">Project Directory Setup</a></li><li class="chapter-item expanded "><a href="../project1.html"><strong aria-hidden="true">1.</strong> Project Set 1: Character Sheet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project1/part1.html"><strong aria-hidden="true">1.1.</strong> Guided Project 1.1</a></li><li class="chapter-item expanded "><a href="../project1/part2.html"><strong aria-hidden="true">1.2.</strong> Guided Project 1.2</a></li><li class="chapter-item expanded "><a href="../project1/part3.html"><strong aria-hidden="true">1.3.</strong> Expanded Project 1.3</a></li></ol></li><li class="chapter-item expanded "><a href="../project2.html"><strong aria-hidden="true">2.</strong> Project Set 2: Dice Game</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project2/part1.html"><strong aria-hidden="true">2.1.</strong> Guided Project 2.1</a></li><li class="chapter-item expanded "><a href="../project2/part2.html" class="active"><strong aria-hidden="true">2.2.</strong> Guided Project 2.2</a></li><li class="chapter-item expanded "><a href="../project2/part3.html"><strong aria-hidden="true">2.3.</strong> Expanded Project 2.3</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Project Set 3: Connect Four</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Guided Project 3.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Guided Project 3.2</div></li></ol></li><li class="chapter-item expanded "><a href="../final.html"><strong aria-hidden="true">4.</strong> Final Project</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Sample Proposal</div></li></ol></li><li class="chapter-item expanded "><a href="../expanded_mod.html"><strong aria-hidden="true">5.</strong> Modified Expanded Projects</a></li><li class="chapter-item expanded "><a href="../testing.html"><strong aria-hidden="true">6.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../testing/test_program.html"><strong aria-hidden="true">6.1.</strong> The Program</a></li><li class="chapter-item expanded "><a href="../testing/download.html"><strong aria-hidden="true">6.2.</strong> Download</a></li><li class="chapter-item expanded "><a href="../testing/guide.html"><strong aria-hidden="true">6.3.</strong> Guide</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../overview.html">Projects Overview</a></li><li class="chapter-item expanded affix "><a href="../setup.html">Project Directory Setup</a></li><li class="chapter-item expanded "><a href="../project1.html"><strong aria-hidden="true">1.</strong> Project Set 1: Character Sheet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project1/part1.html"><strong aria-hidden="true">1.1.</strong> Guided Project 1.1</a></li><li class="chapter-item expanded "><a href="../project1/part2.html"><strong aria-hidden="true">1.2.</strong> Guided Project 1.2</a></li><li class="chapter-item expanded "><a href="../project1/part3.html"><strong aria-hidden="true">1.3.</strong> Expanded Project 1.3</a></li></ol></li><li class="chapter-item expanded "><a href="../project2.html"><strong aria-hidden="true">2.</strong> Project Set 2: Dice Game</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../project2/part1.html"><strong aria-hidden="true">2.1.</strong> Guided Project 2.1</a></li><li class="chapter-item expanded "><a href="../project2/part2.html" class="active"><strong aria-hidden="true">2.2.</strong> Guided Project 2.2</a></li><li class="chapter-item expanded "><a href="../project2/part3.html"><strong aria-hidden="true">2.3.</strong> Expanded Project 2.3</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> (Optional) Project Set 3: Connect Four</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Guided Project 3.1</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> Guided Project 3.2</div></li></ol></li><li class="chapter-item expanded "><a href="../final.html"><strong aria-hidden="true">4.</strong> Final Project</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Sample Proposal</div></li></ol></li><li class="chapter-item expanded "><a href="../expanded_mod.html"><strong aria-hidden="true">5.</strong> Modified Expanded Projects</a></li><li class="chapter-item expanded "><a href="../testing.html"><strong aria-hidden="true">6.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../testing/test_program.html"><strong aria-hidden="true">6.1.</strong> The Program</a></li><li class="chapter-item expanded "><a href="../testing/download.html"><strong aria-hidden="true">6.2.</strong> Download</a></li><li class="chapter-item expanded "><a href="../testing/guide.html"><strong aria-hidden="true">6.3.</strong> Guide</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -250,22 +250,129 @@ should look something like this:</li>
     scorePhase(input, dice);
 }
 </code></pre>
-<p><strong>These directions are currently incomplete. If you're seeing this, then I've
-posted the project early in case anyone is ready to start on it before I write
-the remaining directions. The I/O and function requirements may be enough for
-you if you're comfortable with all of the programming concepts involved in this
-assignment. If not, just wait a few days and the remaining steps should be up.
-The list below is my outline of what I expect to cover in the remaining
-steps.</strong></p>
 <ol start="3">
-<li>Convert reroll into a loop.</li>
-<li>Roll/skip command with labels attached.</li>
-<li>Add rounds to the reroll phase.</li>
-<li>Score phase outline.</li>
-<li>Score phase input validation.</li>
-<li>Method stubs for string, count, and calc.</li>
-<li>Count dice and calculate dice score.</li>
-<li>Score string.</li>
+<li>
+<p>Next, we will use a loop to allow the user to reroll their dice more than
+once. You could also accomplish this by duplicating a lot of code, but the
+loop will be shorter, cleaner, and easier to read.</p>
+<p>We want to repeat the reroll process for as long as the user has rerolls
+left. Make a variable to hold the number of rerolls (it should start at 2),
+then create a while loop that repeats for as long as the user has more than
+zero rerolls. Move the rest of your reroll phase code into this loop.</p>
+<p>If the user answers &quot;yes&quot; when asked if they want to reroll their dice, then
+you should decrease the number of rerolls by one. If the user does not
+answer &quot;yes&quot;, then you can set the number of rerolls to zero so we don't
+keep asking them to reroll their dice.</p>
+<p>Finally, we can move our code that prints the user's rerolled dice out of
+the loop. We're already printing the dice at the beginning of the loop, so
+the user will see what changed between rerolls. We only need to print them
+once after the loop so they can see the final set of dice before scoring.</p>
+<p>Test your code and make sure you can reroll twice (but no more) if you
+always answer &quot;yes&quot; when asked whether to reroll dice. Make sure that
+answering &quot;no&quot; causes the program to print the dice once more before ending.</p>
+</li>
+<li>
+<p>We're going to make one other change to the reroll phase so that our program
+is easier to use. Currently, we have to enter two separate messages: one to
+say that we want to reroll and another to say which dice we want to reroll.
+As the user, it would be nice to include the dice labels when we tell the
+program to reroll our dice.</p>
+<p>Modify your loop so that it asks the user for a command instead of asking
+whether they want to reroll. You should accept two different commands: &quot;roll
+&quot; followed by some dice labels, and &quot;skip&quot;. The roll command should reroll
+the dice and decrease the reroll count by one, the skip command should set
+the reroll count to zero, and any other command should result in an error
+message (see the <a href="#io-format">I/O Format section</a>).</p>
+<p>The roll command might be a little tricky to handle. However, it's much
+easier once you know the right string methods (check the notes and/or Java
+API for more information about these methods):</p>
+<ul>
+<li>You can use <code>startsWith</code> instead of <code>equals</code> to check whether the command
+begins with the word &quot;roll&quot;.</li>
+<li>You can get a string containing only the labels (without the word &quot;roll&quot;)
+by taking a <code>substring</code> of the command. You'll need to provide the
+starting index for the substring.</li>
+<li>You can get the first index where a character appears in a string with
+the <code>indexOf</code> method.</li>
+</ul>
+</li>
+<li>
+<p>We need to add a few other methods for use in the score phase:
+<code>scoreString</code>, <code>calculateDiceScore</code>, and <code>countDice</code>. For now, we're just
+going to write stubs (placeholders) for these methods. This will let us call
+them in the score phase code before we finish writing them, much like when
+we wrote the <code>game</code> method in part 1.</p>
+<p>To create a stub, we just need the method signature line and, if it returns
+a value, a temporary return statement in the method body. This is enough for
+us to compile code that calls the method, even if the method doesn't yet do
+anything useful. Write a stub for the methods listed above. Check the
+<a href="#functions">Functions section</a> for details like the parameters and return
+type of each method. When you add the temporary return statement to these
+methods, just return <code>&quot;placeholder&quot;</code> or <code>-1</code> (depending on whether the
+return type is <code>String</code> or <code>int</code>). We want something that we'll easily
+recognize in our output so we know that our score phase code called these
+methods and used their return values.</p>
+<p>As usual, compile your code and make sure it still works before you
+continue!</p>
+</li>
+<li>
+<p>With placeholders for our other methods, we can now write the <code>scorePhase</code>
+method. We'll start with a simplified version that assumes valid input:</p>
+<ul>
+<li>Call <code>scoreString</code> and print the string it returns</li>
+<li>Prompt the user to choose which die value they want to score</li>
+<li>Subtract one from the user's input</li>
+<li>Call <code>calculateDiceScore</code> with the user's chosen die value and print the
+result</li>
+</ul>
+<p>Test your code and make sure everything still works. You should now see the
+output from <code>scorePhase</code>, including the placeholder values returned by some
+of the method stubs you wrote earlier.</p>
+</li>
+<li>
+<p>Add a loop to the prompt in <code>scorePhase</code>. If the user enters an invalid
+number (valid numbers are integers from 1 to 6), then you should print an
+error message and continue reading input until the user enters a valid
+number.</p>
+<p>Test your code and make sure it handles invalid numbers correctly.</p>
+</li>
+<li>
+<p>Write the <code>calculateDiceScore</code> method. You can use the <code>countDice</code> method to
+count how many times the die value occurs in the dice array, then return
+that number multiplied by the die value.</p>
+<p>Remember that your second parameter is the <strong>category index</strong>, not the <strong>die
+value</strong>. The die value will be one greater than the category index. This may
+seem like an odd choice if you follow the user input from <code>scorePhase</code>
+(where we subtracted one) to this method (where we added one). It will make
+more sense in project 2.3 when we add the other score categories.</p>
+<p>As always, test your code! We know that our <code>countDice</code> stub currently
+returns -1, so we should now expect the return value to be whatever die
+value we enter multiplied by -1.</p>
+</li>
+<li>
+<p>Write the <code>countDice</code> method. This method should iterate over the dice array
+and count how many times the given die value appears in the array. When you
+test your code, you should now see the correct score for the chosen upper
+category. For example, if the user chose to score 3 with the dice 1, 6, 3,
+4, and 3, then they should receive 6 points.</p>
+</li>
+<li>
+<p>The final method we need to write is <code>scoreString</code>. To start, I recommend
+creating the following array at the beginning of <code>scoreString</code>: <code>String[] categoryNames = new String[] {&quot;Aces&quot;, &quot;Twos&quot;, &quot;Threes&quot;, &quot;Fours&quot;, &quot;Fives&quot;, &quot;Sixes&quot;};</code>. This will give you an array with all of the category names and
+make it much easier to use a loop in this method.</p>
+<p>Now we need to build a string. Remember, we're <strong>not</strong> supposed to print
+anything! We need to create and return a string, then let the code that
+called this method decide what to do with it. Start with the header shown
+in the <a href="#io-format">I/O Format section</a>: <code>&quot;Score Options:\n&quot;</code>.</p>
+<p>Finally, we can create a loop that iterates over each category index. This
+loop should add a line for that category that looks like this: <code>    1. Aces: 3</code>. We start with four spaces of indentation, then the number the
+user would enter to choose this category, then the category name (from the
+array we created earlier), and finally the score we would receive for that
+category (use the <code>calculateDiceScore</code> method).</p>
+<p>With this method complete, your program should be finished! Test it to make
+sure everything works. The tests won't give useful feedback if you code
+can't compile.</p>
+</li>
 </ol>
 <h3 id="task-2-run-tests"><a class="header" href="#task-2-run-tests">Task 2: Run Tests</a></h3>
 <p>See the <a href="../testing.html">testing chapter</a> if you don't know how to use the test
