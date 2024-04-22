@@ -5,12 +5,11 @@ projects/
 ├── project3/
 └── tests/
     ├── bin/
-    ├── data/
-    ├── jsh/
     ├── logs/
+    ├── res/
     ├── src/
     ├── student/
-    ├── build.sh
+    ├── build
     ├── LICENSE.txt
     ├── README.txt
     └── test.sh

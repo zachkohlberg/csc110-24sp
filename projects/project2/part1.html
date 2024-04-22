@@ -190,20 +190,40 @@ those dice.</p>
 file named <code>Dice.java</code>. Add <code>Dice.java</code> to your <code>project2/part1</code> folder.</li>
 </ul>
 <pre><code class="language-java">/**
+ * Simulates dice rolls with Math.random(). Includes convenience methods for polyhedral dice (d4,
+ * d6, d8, d10, d12, d20).
+ *
+ * &lt;p&gt;This class is included as starter code so that my tests can replace it with a fake random
+ * number generator that supplies a predetermined series of numbers instead of simulating dice
+ * rolls. This makes it easier to write test cases, but it means you MUST use this class to generate
+ * your random numbers.
+ *
+ * &lt;p&gt;An alternative method of generating random numbers is to use java.util.Random. The
+ * commented-out code shows this method. If you enable this code and delete or comment out the
+ * Math.random() version of roll(), then you'll also be able to set the seed of the random number
+ * generator. Initializing the random number generating with the same seed value will cause it to
+ * generate the same series of numbers every time. A predictable series of &quot;random&quot; values can be
+ * useful for testing code and allow you to replicate my test cases.
+ *
  * @author Zach Kohlberg
- *
- * Simulates dice rolls with Math.random(). Includes convenience methods for
- * polyhedral dice (d4, d6, d8, d10, d12, d20).
- *
- * This class is included as starter code so that my tests can replace it with a
- * fake random number generator that supplies a predetermined series of numbers
- * instead of simulating dice rolls. This makes it easier to write test cases,
- * but it means you MUST use this class to generate your random numbers.
  */
-
 public class Dice {
+    /*
+    // Instantiates its own random number generator instead of using Math.random().
+    private static java.util.Random random = new java.util.Random();
+
+    // Instantiates the RNG with a seed of 12345 instead of a randomly-chosen seed. This means it
+    // will always generate the same sequence of random numbers.
+    // private static java.util.Random random = new java.util.Random(12345);
+
+    // Uses the previous RNG for the roll method instead of Math.random()
     public static int roll(int sides) {
-        return (int)(Math.random() * sides) + 1;
+        return random.nextInt(sides) + 1;
+    }
+    */
+
+    public static int roll(int sides) {
+        return (int) (Math.random() * sides) + 1;
     }
 
     public static int d4() {

@@ -282,18 +282,43 @@ without rerunning the test.</li>
 <h3 id="interpreting-test-results"><a class="header" href="#interpreting-test-results">Interpreting Test Results</a></h3>
 <p>A failed test case can contain several useful pieces of information:</p>
 <ul>
-<li>The input shows what input was provided to your program. You can replicate
-the test case by running your program and typing the exact same input shown
-in this section.</li>
-<li>The student program output shows what your program printed when running. This
-is what you'd expect to see if you replicated the test case by entering the
-same input.</li>
-<li>The expected program output shows what your program needs to print in order
-to pass the test case.</li>
+<li>The input shows what input was provided to your code. This may include two
+categories:
+<ul>
+<li><strong>Program Input</strong> shows what the user typed on the terminal. You can
+replicate this part of the test input by running your code and typing
+exactly what you see in this section or using I/O redirection.</li>
+<li><strong>Function Parameters (Before)</strong> shows what values were passed to your
+function when it was called. This is not applicable to jshell scripts,
+but compiled Java programs will always be tested by calling one of their
+functions. You can replicate this part of the input by calling the
+function being tested and passing identical values as arguments. The
+<strong>(Before)</strong> means that this is what the parameters looked like before
+your code ran. Some parameters may be mutable objects (such as arrays),
+which makes it possible for your code to modify them.</li>
+</ul>
+</li>
+<li>The student output shows the result of running your code. There are three
+possible categories included in the output:
+<ul>
+<li><strong>Program Output</strong> shows what the program printed when running.</li>
+<li><strong>Function Parameters (After)</strong> shows what the function parameters looked
+like after running your code. This only applies to compiled Java tests,
+and it will only matter when the parameters include mutable objects such
+as arrays.</li>
+<li><strong>Function Return Value</strong> shows what the function returned at the end of
+the test. This only applies to compiled Java programs, and it will only
+show up when testing a function with a return type other than <code>void</code>.</li>
+</ul>
+</li>
+<li>The expected program output the expected results of running code that meets
+all of the project's requirements. It will include the same categories as the
+student output. If any of these don't match your output, then the test case
+will fail.</li>
 <li>The errors section shows any error messages that occurred while the test case
 was running.</li>
-<li>The additional feedback section may contain more information about why your
-program didn't pass this test case.</li>
+<li>The additional feedback section may contain more information about the test
+case or hints about common mistakes that would cause this test case to fail.</li>
 </ul>
 <p>When you're looking at the output sections, you'll see each line labelled as
 &quot;MATCH&quot;, &quot;NO MATCH&quot;, or &quot;ERROR&quot;. These labels are there to help you find the
@@ -301,11 +326,14 @@ mistakes in your program's output that caused it to fail this test case.</p>
 <ul>
 <li><code>MATCH</code> means this line was found in both your output and the expected
 output. Every line in the expected output must match for the test to pass.</li>
-<li><code>NO MATCH</code> means this line of your program's output didn't appear in the
-expected output. This isn't necessarily a problem. Your program is allowed to
-produce extra output as long as it produces all of the expected output.</li>
-<li><code>ERROR</code> means this line of the expected output didn't appear in your
-program's output.</li>
+<li><code>NO MATCH</code> means this line of output didn't match the expected output and
+will therefore be ignored when determining whether the test passed. This is
+used for your program's output that doesn't match the expected output because
+your code is allowed to print extra output.</li>
+<li><code>ERROR</code> means this line of the output didn't match and caused the test to
+fail. This is used for all function-related output (parameters after and
+return value), as well as the expected program output. All of this output
+must match exactly for your code to pass the test case.</li>
 </ul>
 <h2 id="3-packing-and-submitting-a-project"><a class="header" href="#3-packing-and-submitting-a-project">3. Packing and Submitting a Project</a></h2>
 <p>After a project passes its tests, you need to put all of your project files in

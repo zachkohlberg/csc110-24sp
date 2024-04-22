@@ -181,23 +181,27 @@ You can check which version you are running with the <code>version</code> comman
 older versions are archived here as well just in case there's an unexpected
 issue with the latest version or someone needs to check an older version for
 some reason.</p>
-<p>Some anti-virus programs may flag the test zip as malware and quarantine it.
-That happened when I downloaded it to my Windows PC to check that it worked in
-Git Bash. This is a false positive (or at least I'm about as confident as
-possible that it's a false positive), and if this happens then you'll need to
-tell your anti-virus program that it's not dangerous. I wrote all of the test
-code, none of which is malicious and all of which can be viewed in the
-tests/src folder, and I only used the Java standard library (no third-party
-libraries). There's no reason that this zip folder is less safe than anything
-else I've shared with the class on OneDrive.</p>
 <p>Latest version:</p>
 <ul>
-<li><a href="../archives/tests_0_2_0.zip">tests_0_2_0.zip</a></li>
+<li><a href="../archives/tests_0_3_0.zip">tests_0_3_0.zip</a>
+<ul>
+<li>When updating to this version, you should first delete your old <code>tests</code>
+folder. The directory structure inside of <code>tests</code> has changed enough that
+many obsolete files from previous versions will be left after the update.
+The records of previous passing tests will not carry over, so you'll also
+need to re-test your projects.</li>
+</ul>
+</li>
 </ul>
 <p>Previous versions:</p>
 <ul>
+<li><a href="../archives/tests_0_2_0.zip">tests_0_2_0.zip</a></li>
 <li><a href="../archives/tests_0_1_0.zip">tests_0_1_0.zip</a></li>
 </ul>
+<h2 id="anti-virus-false-positives"><a class="header" href="#anti-virus-false-positives">Anti-Virus False Positives</a></h2>
+<p>Some anti-virus programs may flag the test zip as malware and quarantine it.
+This is a false positive, and you may need to look up how to tell your
+anti-virus program not to block or quarantine the test program download.</p>
 <h2 id="unpacking"><a class="header" href="#unpacking">Unpacking</a></h2>
 <p>You only need to unpack the program when you first download it or when you
 download a new version. To unpack the program:</p>
